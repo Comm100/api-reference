@@ -175,6 +175,8 @@
     - filterId: integer, filter id  
     - tagId: integer, tag id
     - keywords: string
+    - timeFrom: DateTime, last reply time, default search the last 30 days
+    - timeTo: DateTime, last reply time, defautl value is the current time
     - pageIndex: integer
     - sortBy: string, `nextSLABreach`, `lastReplyTime`, `lastActivityTime`, `priority`, `status` , default value: `lastReplyTime`
     - sortOrder: string, `ascending` or `descending`, default value: `descending`
@@ -323,8 +325,8 @@
 - Parameters 
     - keywords: string
     - pageIndex: integer
-    - timeFrom: DateTime, default search the last 30 days
-    - timeTo: DateTime, defautl value is the current time
+    - timeFrom: DateTime, last reply time, default search the last 30 days
+    - timeTo: DateTime, last reply time, defautl value is the current time
 - Response 
     - deletedTickets: [ticket](#ticket) list 
     - total: integer, total number of tickets 
@@ -475,8 +477,6 @@
 `get api/v3/portalTickets`
 - Parameters:
     - contactId, string, required
-    - startTime, DateTime
-    - endTime, DateTime
 - Response: 
     - portalTickets: [portal ticket](#portal-ticket) list
 - Includes
