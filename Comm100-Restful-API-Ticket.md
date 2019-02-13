@@ -135,7 +135,7 @@
 ### message 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | id of message | 
+| `id` | string | id of message | 
 | `type` | string | `note`, `email`, `reply` | 
 | `source` | string | `agentConsole`, `helpDesk`, `webForm`, `API`, `chat`, `offlineMessage` | 
 | `htmlBody` | string | html body of message | 
@@ -450,7 +450,7 @@
 ### portal ticket message 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | id of message | 
+| `id` | string | id of message | 
 | `htmlBody` | string | html body | 
 | `plainBody` | string | plain text body | 
 | `senderId`| string | id of agent or contact | 
@@ -541,7 +541,7 @@
 ### filter 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | filter id | 
+| `id` | string | filter id | 
 | `name` | string | filter name | 
 | `isPrivate` | boolean | if private filter| 
 | `createdById` | integer | agent id | 
@@ -550,7 +550,7 @@
 ### condition 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | condition id | 
+| `id` | string | condition id | 
 | `fieldId` | integer | field id | 
 | `matchType` | string | `contains`, `notContains`, `is`, `isNot`, `isMoreThan`, `isLessThan`, `before`, `after` | 
 | `value` | string | condition value | 
@@ -602,7 +602,7 @@
 ### field 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | field id | 
+| `id` | string | field id | 
 | `type` | string | `text`, `textarea`, `email`, `url`, `date`, `integer`, `float`, `operator`, <br/>`radio`, `checkbox`, `dropdownList`, `checkboxList`, `link`, `department` | 
 | `name` | integer | field name | 
 | `isSystemField` | boolean | if is system field | 
@@ -615,7 +615,7 @@
 ### fieldOption 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | option id | 
+| `id` | string | option id | 
 | `name` | string | option name | 
 | `value` | string | field value | 
 | `order` | integer | option order | 
@@ -683,7 +683,7 @@
 ### canned response 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | id | 
+| `id` | string | id | 
 | `name` | string | canned response name | 
 | `htmlContent` | string | html format content | 
 | `textContent` | string | text format content | 
@@ -713,7 +713,7 @@
 ### department 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | id | 
+| `id` | string | id | 
 | `name` | string | department name | 
 | `description` | string | department description | 
 | `members` | [department member](#department-member)[] | department member array | 
@@ -721,7 +721,7 @@
 ### department member 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | id | 
+| `id` | string | id | 
 | `name` | string | member name | 
 | `type` | string | agent or group | 
 
@@ -741,7 +741,7 @@
 ### email account 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | id | 
+| `id` | string | id | 
 | `email` | string | email address |  
 | `type` | string | pop3 or exchange | 
 | `agentAssigneeId` | string | agent id | 
@@ -760,7 +760,7 @@
 ### junk email 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | id | 
+| `id` | string | id | 
 | `subject` | string | email subject | 
 | `time` | datetime | received time | 
 | `name` | string | sender name | 
@@ -822,7 +822,7 @@
 ### tag 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | id | 
+| `id` | string | id | 
 | `name` | string | tag name | 
 | `ticketCount` | integer | the count of tickets with the tag | 
 ## endpoints 
