@@ -121,14 +121,14 @@
 ### custom field value
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | the id of custom field |
+| `id` | string | the guid of custom field |
 | `name` | string | the name of custom field |
 | `value` | string | the value of custom field |
 
 ### mentioned agent 
 | Name | Type | Description | 
 | - | - | - | 
-| `agentId` | string | the agent id of mentioned | 
+| `agentId` | string | the agent guid of mentioned | 
 | `isRead`| boolean | if the mentioned ticket is read | 
 | `messageId`| integer| message id| 
 
@@ -164,7 +164,7 @@
 | `to` | string | to email address | 
 | `cc` | string | cc email addresses | 
 | `savedTime` | datetime | | 
-| `savedById` | string | the id of the agent who saved the ticket draft | 
+| `savedById` | string | the guid of the agent who saved the ticket draft | 
 | `attachments` | [attachment](#attachment)[] | draft attachments | 
 
 ## endpoints 
@@ -450,7 +450,7 @@
 ### portal ticket message 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | id of message | 
+| `id` | string | guid of message | 
 | `htmlBody` | string | html body | 
 | `plainBody` | string | plain text body | 
 | `senderId`| string | id of agent or contact | 
@@ -489,7 +489,7 @@
 `post api/v3/portalTickets`
 - Parameters: 
     - subject: string, subject, required
-    - contactId: string, id of the contact who submitted the portal ticket
+    - contactId: string, guid of the contact who submitted the portal ticket
     - customFields: [custom field value](#custom-field-value)[], custom field value array
     - message:  the first portal message
         - htmlBody: string, html body
@@ -541,17 +541,17 @@
 ### filter 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | filter id | 
+| `id` | string | filter guid | 
 | `name` | string | filter name | 
 | `isPrivate` | boolean | if private filter| 
-| `createdById` | integer | agent id | 
+| `createdById` | string | agent guid | 
 | `conditions` | [condition](#condition)[] | array of filter condition | 
 
 ### condition 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | condition id | 
-| `fieldId` | integer | field id | 
+| `id` | string | condition guid | 
+| `fieldId` | string | field guid | 
 | `matchType` | string | `contains`, `notContains`, `is`, `isNot`, `isMoreThan`, `isLessThan`, `before`, `after` | 
 | `value` | string | condition value | 
 
@@ -575,14 +575,14 @@
 ### Get a filter and its conditions 
 `get api/v3/tickets/filters/{id}` 
 - Parameters 
-    - id: integer, filter id 
+    - id: string, filter guid 
 - Response 
     - filter: [filter](#filter) 
 
 ### Update filter 
 `put api/v3/tickets/filters/{id}` 
 - Parameters 
-    - id: integer, filter id 
+    - id: string, filter guid 
     - name: string, filter name, required 
     - isPrivate: boolean, if private filter 
     - conditions: [condition](#condition)[], array of filter condition
@@ -592,7 +592,7 @@
 ### Delete filter 
 `delete api/v3/tickets/filters/{id}` 
 - Parameters 
-    - id: integer, filter id 
+    - id: string, filter guid 
 - Response 
     - http status code 
 
@@ -602,7 +602,7 @@
 ### field 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | field id | 
+| `id` | string | field guid | 
 | `type` | string | `text`, `textarea`, `email`, `url`, `date`, `integer`, `float`, `operator`, <br/>`radio`, `checkbox`, `dropdownList`, `checkboxList`, `link`, `department` | 
 | `name` | integer | field name | 
 | `isSystemField` | boolean | if is system field | 
@@ -615,7 +615,7 @@
 ### fieldOption 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | option id | 
+| `id` | string | option guid | 
 | `name` | string | option name | 
 | `value` | string | field value | 
 | `order` | integer | option order | 
@@ -633,7 +633,7 @@
 ### attachment 
 | Name | Type | Description | 
 | - | - | - | 
-| `guid` | string | attachment unique id | 
+| `guid` | string | attachment unique guid | 
 | `fileName` | string | attachment file name| 
 | `url` | string | attachment download link | 
 | `isAvailable` | boolean | if the attachment is available | 
@@ -683,7 +683,7 @@
 ### canned response 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | id | 
+| `id` | string | guid | 
 | `name` | string | canned response name | 
 | `htmlContent` | string | html format content | 
 | `textContent` | string | text format content | 
@@ -713,7 +713,7 @@
 ### department 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | id | 
+| `id` | string | guid | 
 | `name` | string | department name | 
 | `description` | string | department description | 
 | `members` | [department member](#department-member)[] | department member array | 
@@ -721,7 +721,7 @@
 ### department member 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | id | 
+| `id` | string | agent guid or agent group guid | 
 | `name` | string | member name | 
 | `type` | string | agent or group | 
 
@@ -741,11 +741,11 @@
 ### email account 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | id | 
+| `id` | string | guid | 
 | `email` | string | email address |  
 | `type` | string | pop3 or exchange | 
-| `agentAssigneeId` | string | agent id | 
-| `departmentAssigneeId` | integer | department id | 
+| `agentAssigneeId` | string | agent guid | 
+| `departmentAssigneeId` | string | department guid | 
 | `isDefault` | boolean | if default email account | 
 
 
@@ -760,7 +760,7 @@
 ### junk email 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | id | 
+| `id` | string | guid | 
 | `subject` | string | email subject | 
 | `time` | datetime | received time | 
 | `name` | string | sender name | 
@@ -769,7 +769,7 @@
 | `cc` | string | cc email addresses | 
 | `htmlBody` | string | html body | 
 | `plainBody` | string | plain text body | 
-| `emailAccountId` | integer | receive email account id | 
+| `emailAccountId` | string | receive email account guid | 
 | `isRead` | boolean | if is read | 
 | `attachments` | [attachment](#attachment)[] | attachments | 
 
@@ -792,7 +792,7 @@
 ### Get a junk email 
 `get api/v3/tickets/junkEmails/{id}` 
 - Parameters 
-    - id: integer, email id 
+    - id: string, email guid 
 - Response 
     - junkEmail: [junk email](#junk-email) 
 
@@ -806,14 +806,14 @@
 ### Restore a junk email to a normal ticket 
 `post api/v3/tickets/junkEmails/{id}/notJunk` 
 - Parameters 
-    - id: integer, email id 
+    - id: string, email guid 
 - Response 
     - ticket: [ticket](#ticket) 
 
 ### Delete a junk email 
 `delete api/v3/tickets/junkEmails/{id}` 
 - Parameters 
-    - id: integer, junk email id 
+    - id: string, junk email guid 
 - Response 
     - http status code 
 
@@ -822,7 +822,7 @@
 ### tag 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | id | 
+| `id` | string | guid | 
 | `name` | string | tag name | 
 | `ticketCount` | integer | the count of tickets with the tag | 
 ## endpoints 
@@ -841,7 +841,7 @@
 ### Update One Tag 
 `Put api/v3/tickets/tags/{id}` 
 - Parameters 
-    - id: integer, tag id 
+    - id: string, tag guid 
     - name: string, tag name 
 - Response 
     - tag: [tag](#tag) 
@@ -849,6 +849,6 @@
 ### Delete a tag 
 `Delete api/v3/tickets/tags/{id}` 
 - Parameters 
-    - id: integer, tag id 
+    - id: string, tag guid 
 - Response 
     - http status code
