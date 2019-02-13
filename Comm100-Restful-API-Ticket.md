@@ -121,7 +121,7 @@
 ### custom field value
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | the id of custom field |
+| `id` | string | the id of custom field |
 | `name` | string | the name of custom field |
 | `value` | string | the value of custom field |
 
