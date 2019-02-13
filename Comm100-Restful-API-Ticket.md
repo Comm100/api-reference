@@ -91,8 +91,8 @@
 | `id` | integer | id of ticket | 
 | `subject` | string | ticket subject | 
 | `agentAssigneeId` | string | agent assignee id | 
-| `departmentAssigneeId` | integer | department assignee id | 
-| `contactId` | string | the contact guid string | 
+| `departmentAssigneeId` | string | department assignee id | 
+| `contactId` | string | the contact id string | 
 | `receivedFrom` | string | received email address for email channel | 
 | `channel` | string | `portal`, `email`| 
 | `priority` | string | `urgent`, `high`, `normal`, `low` | 
@@ -108,9 +108,9 @@
 | `lastRepliedById` | string | contact id or agent id | 
 | `lastRepliedByType` | string | `agent` or `contact` or `system`| 
 | `hasDraft` | boolean | if has draft | 
-| `tagIds` | integer[] | tag id array | 
+| `tagIds` | string[] | tag id array | 
 | `isDeleted` | boolean | if deleted | 
-| `slaPolicyId` | integer | SLA id of this ticket matched | 
+| `slaPolicyId` | string | SLA id of this ticket matched | 
 | `firstRespondBreachAt` | datetime | Timestamp that denotes when the first <br/> response is due | 
 | `nextRespondBreachAt` | datetime | Timestamp that denotes when the next <br/> response is due | 
 | `resolveBreachAt` | datetime | Timestamp that denotes when the ticket is <br/> due to be resolved | 
@@ -121,21 +121,21 @@
 ### custom field value
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | the guid of custom field |
+| `id` | string | theid of custom field |
 | `name` | string | the name of custom field |
 | `value` | string | the value of custom field |
 
 ### mentioned agent 
 | Name | Type | Description | 
 | - | - | - | 
-| `agentId` | string | the agent guid of mentioned | 
+| `agentId` | string | the agent id of mentioned | 
 | `isRead`| boolean | if the mentioned ticket is read | 
-| `messageId`| integer| message id| 
+| `messageId`| string | message id| 
 
 ### message 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | guid of message | 
+| `id` | string | id of message | 
 | `type` | string | `note`, `email`, `reply` | 
 | `source` | string | `agentConsole`, `helpDesk`, `webForm`, `API`, `chat`, `offlineMessage` | 
 | `htmlBody` | string | html body of message | 
@@ -149,12 +149,12 @@
 | `to` | string | | 
 | `cc` | string | cc email addresses |  
 | `attachments` | [attachment](#attachment)[] | attachment array| 
-| `mentionedAgentIds` | integer[] | only for Note, @mentioned agents id array |
+| `mentionedAgentIds` | string[] | only for Note, @mentioned agents id array |
 
 ### ticket draft 
 | Name | Type | Description | 
 | - | - | - | 
-| `draftId` | string | guid of ticket draft | 
+| `draftId` | string | id of ticket draft | 
 | `ticketId` | integer | id of ticket | 
 | `subject` | string | draft subject | 
 | `htmlBody` | string | html body of ticket draft | 
@@ -164,7 +164,7 @@
 | `to` | string | to email address | 
 | `cc` | string | cc email addresses | 
 | `savedTime` | datetime | | 
-| `savedById` | string | the guid of the agent who saved the ticket draft | 
+| `savedById` | string | the id of the agent who saved the ticket draft | 
 | `attachments` | [attachment](#attachment)[] | draft attachments | 
 
 ## endpoints 
@@ -172,8 +172,8 @@
 `get api/v3/tickets` 
 + Max 50 tickets are responded for each request. 
 + Parameters 
-    - filterId: integer, filter id  
-    - tagId: integer, tag id
+    - filterId: string, filter id  
+    - tagId: string, tag id
     - keywords: string
     - timeFrom: DateTime, last reply time, default search the last 30 days
     - timeTo: DateTime, last reply time, defautl value is the current time
@@ -200,7 +200,7 @@
 ### Get a ticket 
 `get api/v3/tickets/{id} ` 
 + Parameters 
-    - id: integer, ticket  
+    - id: integer, ticket id 
 + Response 
     - ticket: [ticket](#ticket) 
 + Includes
@@ -221,11 +221,11 @@
     - channel: string, `portal`, `email`, required 
     - contactId: string, contact id
     - agentAssigneeId: string, agent id
-    - departmentAssigneeId: integer, department id
+    - departmentAssigneeId: string, department id
     - priority: string, `urgent`, `high`, `normal`, `low`, default value: `normal` 
     - status: string, `new`, `pendingInternal`, `pendingExternal,`, `onHold`, `closed`, default value: `new`  
     - customFields: [custom field value](#custom-field-value)[], custom field value array
-    - tagIds: integer[], tag id array
+    - tagIds: string[], tag id array
     - message: the first message of the ticket, required
         - type: string, `note`, `email`, `reply`, required
         - source: string, `agentConsole`, `API`, default value: `API`
@@ -257,12 +257,12 @@
     - subject: string, ticket subject
     - contactId: string, the contact id or agent id
     - agentAssigneeId: string, agent id
-    - departmentAssigneeId: integer, department id
+    - departmentAssigneeId: string, department id
     - priority: string, priority: `urgent`, `high`, `normal`, `low`
     - status: string, `new`, `pendingInternal`, `pendingExternal,`, `onHold`, `closed`
     - isRead: boolean
     - customFields: [custom field value](#custom-field-value)[], custom field value array
-    - tagIds: integer[], tag id array
+    - tagIds: string[], tag id array
 - Response 
     - ticket: [ticket](#ticket) 
 
@@ -273,7 +273,7 @@
     - status, string
     - priority, string
     - agentAssigneeId, string
-    - departmentAssigneeId, integer
+    - departmentAssigneeId, string
     - isRead, boolean
 + Response 
     - tickets: [ticket](#ticket) list 
@@ -430,7 +430,7 @@
 - Response 
     - allCount: integer, all unread ticket number. 
     - array including: 
-        - filterId: integer, filter id 
+        - filterId: string, filter id 
         - unreadCount: integer, count unread tickets of a filter 
         - unreadMentionedCount: integer, the number of tickets which is unread and mentioned to me 
 
@@ -450,7 +450,7 @@
 ### portal ticket message 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | guid of message | 
+| `id` | string | id of message | 
 | `htmlBody` | string | html body | 
 | `plainBody` | string | plain text body | 
 | `senderId`| string | id of agent or contact | 
@@ -489,7 +489,7 @@
 `post api/v3/portalTickets`
 - Parameters: 
     - subject: string, subject, required
-    - contactId: string, guid of the contact who submitted the portal ticket
+    - contactId: string, id of the contact who submitted the portal ticket
     - customFields: [custom field value](#custom-field-value)[], custom field value array
     - message:  the first portal message
         - htmlBody: string, html body
@@ -541,17 +541,17 @@
 ### filter 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | filter guid | 
+| `id` | string | filter id | 
 | `name` | string | filter name | 
 | `isPrivate` | boolean | if private filter| 
-| `createdById` | string | agent guid | 
+| `createdById` | string | agent id | 
 | `conditions` | [condition](#condition)[] | array of filter condition | 
 
 ### condition 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | condition guid | 
-| `fieldId` | string | field guid | 
+| `id` | string | condition id | 
+| `fieldId` | string | field id | 
 | `matchType` | string | `contains`, `notContains`, `is`, `isNot`, `isMoreThan`, `isLessThan`, `before`, `after` | 
 | `value` | string | condition value | 
 
@@ -575,14 +575,14 @@
 ### Get a filter and its conditions 
 `get api/v3/tickets/filters/{id}` 
 - Parameters 
-    - id: string, filter guid 
+    - id: string, filter id 
 - Response 
     - filter: [filter](#filter) 
 
 ### Update filter 
 `put api/v3/tickets/filters/{id}` 
 - Parameters 
-    - id: string, filter guid 
+    - id: string, filter id 
     - name: string, filter name, required 
     - isPrivate: boolean, if private filter 
     - conditions: [condition](#condition)[], array of filter condition
@@ -592,7 +592,7 @@
 ### Delete filter 
 `delete api/v3/tickets/filters/{id}` 
 - Parameters 
-    - id: string, filter guid 
+    - id: string, filter id 
 - Response 
     - http status code 
 
@@ -602,9 +602,9 @@
 ### field 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | field guid | 
+| `id` | string | field id | 
 | `type` | string | `text`, `textarea`, `email`, `url`, `date`, `integer`, `float`, `operator`, <br/>`radio`, `checkbox`, `dropdownList`, `checkboxList`, `link`, `department` | 
-| `name` | integer | field name | 
+| `name` | string | field name | 
 | `isSystemField` | boolean | if is system field | 
 | `isRequired` | boolean | value if is required | 
 | `defaultValue` | string | field default value | 
@@ -615,7 +615,7 @@
 ### fieldOption 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | option guid | 
+| `id` | string | option id | 
 | `name` | string | option name | 
 | `value` | string | field value | 
 | `order` | integer | option order | 
@@ -633,7 +633,7 @@
 ### attachment 
 | Name | Type | Description | 
 | - | - | - | 
-| `guid` | string | attachment unique guid | 
+| `guid` | string | attachment unique id | 
 | `fileName` | string | attachment file name| 
 | `url` | string | attachment download link | 
 | `isAvailable` | boolean | if the attachment is available | 
@@ -683,7 +683,7 @@
 ### canned response 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | guid | 
+| `id` | string | canned response id | 
 | `name` | string | canned response name | 
 | `htmlContent` | string | html format content | 
 | `textContent` | string | text format content | 
@@ -713,7 +713,7 @@
 ### department 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | guid | 
+| `id` | string | department id | 
 | `name` | string | department name | 
 | `description` | string | department description | 
 | `members` | [department member](#department-member)[] | department member array | 
@@ -721,7 +721,7 @@
 ### department member 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | agent guid or agent group guid | 
+| `id` | string | agent id or agent group id | 
 | `name` | string | member name | 
 | `type` | string | agent or group | 
 
@@ -741,11 +741,11 @@
 ### email account 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | guid | 
+| `id` | string | id | 
 | `email` | string | email address |  
 | `type` | string | pop3 or exchange | 
-| `agentAssigneeId` | string | agent guid | 
-| `departmentAssigneeId` | string | department guid | 
+| `agentAssigneeId` | string | agent id | 
+| `departmentAssigneeId` | string | department id | 
 | `isDefault` | boolean | if default email account | 
 
 
@@ -760,7 +760,7 @@
 ### junk email 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | guid | 
+| `id` | string | junk email id | 
 | `subject` | string | email subject | 
 | `time` | datetime | received time | 
 | `name` | string | sender name | 
@@ -769,7 +769,7 @@
 | `cc` | string | cc email addresses | 
 | `htmlBody` | string | html body | 
 | `plainBody` | string | plain text body | 
-| `emailAccountId` | string | receive email account guid | 
+| `emailAccountId` | string | receive email account id | 
 | `isRead` | boolean | if is read | 
 | `attachments` | [attachment](#attachment)[] | attachments | 
 
@@ -792,7 +792,7 @@
 ### Get a junk email 
 `get api/v3/tickets/junkEmails/{id}` 
 - Parameters 
-    - id: string, email guid 
+    - id: string, junk email id 
 - Response 
     - junkEmail: [junk email](#junk-email) 
 
@@ -806,14 +806,14 @@
 ### Restore a junk email to a normal ticket 
 `post api/v3/tickets/junkEmails/{id}/notJunk` 
 - Parameters 
-    - id: string, email guid 
+    - id: string, junk email id 
 - Response 
     - ticket: [ticket](#ticket) 
 
 ### Delete a junk email 
 `delete api/v3/tickets/junkEmails/{id}` 
 - Parameters 
-    - id: string, junk email guid 
+    - id: string, junk email id 
 - Response 
     - http status code 
 
@@ -822,7 +822,7 @@
 ### tag 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | guid | 
+| `id` | string | tag id | 
 | `name` | string | tag name | 
 | `ticketCount` | integer | the count of tickets with the tag | 
 ## endpoints 
@@ -841,7 +841,7 @@
 ### Update One Tag 
 `Put api/v3/tickets/tags/{id}` 
 - Parameters 
-    - id: string, tag guid 
+    - id: string, tag id 
     - name: string, tag name 
 - Response 
     - tag: [tag](#tag) 
@@ -849,6 +849,6 @@
 ### Delete a tag 
 `Delete api/v3/tickets/tags/{id}` 
 - Parameters 
-    - id: string, tag guid 
+    - id: string, tag id 
 - Response 
     - http status code
