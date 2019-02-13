@@ -135,7 +135,7 @@
 ### message 
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | id of message | 
+| `id` | string | guid of message | 
 | `type` | string | `note`, `email`, `reply` | 
 | `source` | string | `agentConsole`, `helpDesk`, `webForm`, `API`, `chat`, `offlineMessage` | 
 | `htmlBody` | string | html body of message | 
@@ -154,7 +154,7 @@
 ### ticket draft 
 | Name | Type | Description | 
 | - | - | - | 
-| `draftId` | integer | id of ticket draft | 
+| `draftId` | string | guid of ticket draft | 
 | `ticketId` | integer | id of ticket | 
 | `subject` | string | draft subject | 
 | `htmlBody` | string | html body of ticket draft | 
