@@ -29,7 +29,7 @@
 ### identity
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | integer | the id of identity |
+| `id` | string | the guid of identity |
 | `type` | string | `email`, `SSOUserId`, `externalId` |
 | `value` | string | the value of this identity, should be unique |
 
@@ -127,7 +127,7 @@
 `put  /api/v3/contacts/{contactId}/identities/{id}`
 - Parameters
     - contactId, string, contact guid
-    - id, integer, contact identity id
+    - id, string, contact identity guid
     - value, string, the value of the identity
 - Response
     - identity: [identity object](#identity)
@@ -136,7 +136,7 @@
  `delete  /api/v3/contacts/{contactId}/identities/{id}`
 - Parameters
     - contactId, string, contact guid
-    - id, integer, contact identity id
+    - id, string, contact identity guid
 - Response
     - http status code and message
 
