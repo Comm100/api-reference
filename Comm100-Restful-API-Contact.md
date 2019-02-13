@@ -10,7 +10,7 @@
 ### contact
 | Name | Type | Description |
 | - | - | - |
-| `id` | string | guid of contact |
+| `id` | string | id of contact |
 | `name` | string |  the name of the contact |
 | `alias` | string |  the alias name of the contact |
 | `identities` | [identity](#identity)[] | identity array  |
@@ -29,7 +29,7 @@
 ### identity
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | the guid of identity |
+| `id` | string | the id of identity |
 | `type` | string | `email`, `SSOUserId`, `externalId` |
 | `value` | string | the value of this identity, should be unique |
 
@@ -39,7 +39,7 @@
 #### Get a contact by contact id
 `get  /api/v3/contacts/{id}`
 - Parameters
-    - id: string, guid of the contact
+    - id: string, id of the contact
 - Response
     - [contact object](#contact)
 
@@ -110,14 +110,14 @@
 #### Delete a contact
  `delete  /api/v3/contacts/{id}`
 - Parameters
-    - id: string, guid of the contact
+    - id: string, id of the contact
 - Response
     - http status code and message
 
 #### Add identity
 `post  /api/v3/contacts/{contactId}/identities`
 - Parameters
-    - contactId: string, contact guid
+    - contactId: string, contact id
     - type: string, identity type
     - value: string, identity value
 - Response
@@ -126,8 +126,8 @@
 #### Update identity
 `put  /api/v3/contacts/{contactId}/identities/{id}`
 - Parameters
-    - contactId, string, contact guid
-    - id, string, contact identity guid
+    - contactId, string, contact id
+    - id, string, contact identity id
     - value, string, the value of the identity
 - Response
     - identity: [identity object](#identity)
@@ -135,8 +135,8 @@
 #### Delete identity
  `delete  /api/v3/contacts/{contactId}/identities/{id}`
 - Parameters
-    - contactId, string, contact guid
-    - id, string, contact identity guid
+    - contactId, string, contact id
+    - id, string, contact identity id
 - Response
     - http status code and message
 
