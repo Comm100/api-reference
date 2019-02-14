@@ -2,15 +2,15 @@
 # Resource List 
 |Name|EndPoint|Note| 
 |---|---|---| 
-|[Contact](#contact)| /api/v3/contacts|for contact| 
-|[Agent](#agent)| /api/v3/agents|for agent|
+|[Contact](#contact)| /api/v3/account/contacts|for contact| 
+|[Agent](#agent)| /api/v3/account/agents|for agent|
 
 # Contact
 ## objects
 ### contact
 | Name | Type | Description |
 | - | - | - |
-| `id` | string | id of contact |
+| `id` | integer | id of contact |
 | `name` | string |  the name of the contact |
 | `alias` | string |  the alias name of the contact |
 | `identities` | [identity](#identity)[] | identity array  |
@@ -29,7 +29,7 @@
 ### identity
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | the id of identity |
+| `id` | integer | the id of identity |
 | `type` | string | `email`, `SSOUserId`, `externalId` |
 | `value` | string | the value of this identity, should be unique |
 
@@ -37,14 +37,14 @@
 
 ### endpoints
 #### Get a contact by contact id
-`get  /api/v3/contacts/{id}`
+`get  /api/v3/account/contacts/{id}`
 - Parameters
-    - id: string, id of the contact
+    - id: integer, id of the contact
 - Response
     - [contact object](#contact)
 
 #### Create a contact
-`post  /api/v3/contacts`
+`post  /api/v3/account/contacts`
 - Parameters 
 
 | Name | Type | Description |
@@ -68,7 +68,7 @@
 
 #### Search contacts
 - Max 50 contacts are responded for each request.
-- `get  /api/v3/contacts`
+- `get  /api/v3/account/contacts`
 - Parameters
     - pageIndex, integer, default 1
     - keywords, string, search scope includes: name/identity value/alias 
@@ -79,14 +79,14 @@
     - nextPage: string, the last page return null.
     - currentPage: string, current page uri.
 - Example
-    - `get  /api/v3/contacts?keywords=comm100`
+    - `get  /api/v3/account/contacts?keywords=comm100`
 - Note
     - Deleted contact will not be included in the results.
     - The query must be URL encoded.
     - Fuzzy search is supported.
 
 #### Update a contact
-`put  /api/v3/contacts/{id}`
+`put  /api/v3/account/contacts/{id}`
 - Parameters
 
 | Name | Type | Description |
@@ -108,35 +108,35 @@
     - contact: [contact object](#contact)
 
 #### Delete a contact
- `delete  /api/v3/contacts/{id}`
+ `delete  /api/v3/account/contacts/{id}`
 - Parameters
-    - id: string, id of the contact
+    - id: integer, id of the contact
 - Response
     - http status code and message
 
 #### Add identity
-`post  /api/v3/contacts/{contactId}/identities`
+`post  /api/v3/account/contacts/{contactId}/identities`
 - Parameters
-    - contactId: string, contact id
+    - contactId: integer, contact id
     - type: string, identity type
     - value: string, identity value
 - Response
     - identity: [identity object](#identity)
 
 #### Update identity
-`put  /api/v3/contacts/{contactId}/identities/{id}`
+`put  /api/v3/account/contacts/{contactId}/identities/{id}`
 - Parameters
-    - contactId, string, contact id
-    - id, string, contact identity id
+    - contactId, integer, contact id
+    - id, integer, contact identity id
     - value, string, the value of the identity
 - Response
     - identity: [identity object](#identity)
 
 #### Delete identity
- `delete  /api/v3/contacts/{contactId}/identities/{id}`
+ `delete  /api/v3/account/contacts/{contactId}/identities/{id}`
 - Parameters
-    - contactId, string, contact id
-    - id, string, contact identity id
+    - contactId, integer, contact id
+    - id, integer, contact identity id
 - Response
     - http status code and message
 
