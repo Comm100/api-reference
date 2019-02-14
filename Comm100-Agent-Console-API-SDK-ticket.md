@@ -9,7 +9,7 @@
     subject: '', //string
     agentAssignee: 
     {
-        id: '', // string
+        id: 1, //number
         email: '', //string
         displayName: '', //string 
         firstName: '', //string
@@ -17,7 +17,7 @@
         title: '', //string	 
         bio: '', //string	 
         mobilePhone: '', //string	
-        isAdmin: false, // boolean
+        isAdmin: false, //boolean
         timeZone: '', //string
         dateTimeFormat: '' //string
     },
@@ -28,7 +28,7 @@
     },
     contact:
     {
-        id: '', //string
+        id: 1, //number
         name: '', //string
         identities:[
             {
@@ -49,7 +49,7 @@
         postcode: '', //string
         createdTime: '' //string
     },
-    channel: '', // string, Portal, Email,
+    channel: '', //string, Portal, Email,
     status: '', //string, new, pendingExternal, pendingInternal, onHold, closed
     priority: '', //string, low, normal, high, urgent
     isRead: false, //boolean
@@ -78,7 +78,7 @@
     mentionedAgents:[
         {
             id: 1, //number,agent id
-            messageId: 1, // message Id
+            messageId: 1, //number, message Id
             isRead: false, //boolean
         }
     ],
@@ -107,7 +107,7 @@
         time: '', //string
         sender: 
         {
-            id: '', //string
+            id: 1, //number
             type:'', //string
             name: '', //string
             email: '', //string   
@@ -125,7 +125,7 @@
 
  // attachment
   const  attachment = { 
-    guid: '', // string
+    guid: '', //string
     fileName: '', // string
     url: '',// string
     isAvailable: true //boolean
@@ -133,7 +133,7 @@
   
   // agent
   const  agent = {
-    id: '',    // string
+    id: 1,    //number
     email: '', //string
     displayName: '', //string 
     firstName: '', //string
@@ -141,7 +141,7 @@
     title: '', //string	 
     bio: '', //string	 
     mobilePhone: '', //string	
-    isAdmin: false, // boolean
+    isAdmin: false, //boolean
     timeZone: '', //string
     dateTimeFormat: '', //string
   }
@@ -177,7 +177,7 @@ Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.contact');
 //Only the ID of the contact can be set
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.contact', value);
 //Example
-Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.contact', { id: '' });
+Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.contact', { id: 1 });
 ```
 
 ### department assignee
@@ -194,7 +194,7 @@ Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.departmentAssignee
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.agentAssignee');
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.agentAssignee', value);
 //Example
-Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.agentAssignee', {id: '' });
+Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.agentAssignee', {id: 1 });
 ```
 
 ### priority
