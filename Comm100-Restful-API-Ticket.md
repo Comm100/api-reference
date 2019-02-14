@@ -255,7 +255,7 @@
 - Parameters 
     - id: integer, ticket id
     - subject: string, ticket subject
-    - contactId: integer, the contact id or agent id
+    - contactId: integer, the contact id
     - agentAssigneeId: integer, agent id
     - departmentAssigneeId: integer, department id
     - priority: string, priority: `urgent`, `high`, `normal`, `low`
