@@ -92,7 +92,7 @@
 | `subject` | string | ticket subject | 
 | `agentAssigneeId` | integer | agent assignee id | 
 | `departmentAssigneeId` | integer | department assignee id | 
-| `contactId` | integer | the contact id string | 
+| `contactId` | integer | contact id | 
 | `receivedFrom` | string | received email address for email channel | 
 | `channel` | string | `portal`, `email`| 
 | `priority` | string | `urgent`, `high`, `normal`, `low` | 
