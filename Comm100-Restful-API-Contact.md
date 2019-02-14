@@ -23,7 +23,7 @@
 | `city` | string | the city of the contact  |
 | `stateOrProvince` | string | the state or province of the contact |
 | `country` | string |  the country of the contact |
-| `postcode` | string | the postcode of the contact  |
+| `postalOrZipCode` | string | the postal or zip code of the contact  |
 | `createdTime` | datetime | the time the contact was created |
   
 ### identity
@@ -61,7 +61,7 @@
 | `city` | string | the city of the contact  |
 | `stateOrProvince` | string | the state or province of the contact |
 | `country` | string |  the country of the contact |
-| `postcode` | string | the postcode of the contact  |
+| `postalOrZipCode` | string | the postal or zip Code of the contact  |
 
 - Response
     - contact: [contact object](#contact)
@@ -102,7 +102,7 @@
 | `city` | string | the city of the contact  |
 | `stateOrProvince` | string | the state or province of the contact |
 | `country` | string |  the country of the contact |
-| `postcode` | string | the postcode of the contact |
+| `postalOrZipCode` | string | the postal or zip code of the contact |
 
 - Response
     - contact: [contact object](#contact)
