@@ -223,7 +223,7 @@
     - agentAssigneeId: integer, agent id
     - departmentAssigneeId: integer, department id
     - priority: string, `urgent`, `high`, `normal`, `low`, default value: `normal` 
-    - status: string, `new`, `pendingInternal`, `pendingExternal,`, `onHold`, `closed`, default value: `new`  
+    - status: string, `new`, `pendingInternal`, `pendingExternal`, `onHold`, `closed`, default value: `new`  
     - customFields: [custom field value](#custom-field-value)[], custom field value array
     - tagIds: integer[], tag id array
     - message: the first message of the ticket, required
