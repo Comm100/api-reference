@@ -18,18 +18,18 @@
 
     | Endpoints | Support including parameters |
     | - | - |
-    | `get api/v3/tickets` | agentAssignee, departmentAssignee, contact, createdBy, lastRepliedBy |
-    | `get api/v3/tickets/{id}` | agentAssignee, departmentAssignee, contact, createdBy, lastRepliedBy, messages |
-    | `get api/v3/tickets/{id}/messages` | sender |
-    | `get api/v3/deletedTickets` | agentAssignee, departmentAssignee, contact, createdBy, lastRepliedBy |
-    | `get api/v3/deletedTickets/{id}` | agentAssignee, departmentAssignee, contact, createdBy, lastRepliedBy, messages |
-    | `get api/v3/deletedTickets/{id}/messages` | sender |
-    | `get api/v3/portalTickets/{id}` | contact, messages |
-    | `get api/v3/portalTickets` | contact |
-    | `get api/v3/portalTickets/{id}/messages` | sender | 
+    | `get api/v3/ticket/tickets` | agentAssignee, departmentAssignee, contact, createdBy, lastRepliedBy |
+    | `get api/v3/ticket/tickets/{id}` | agentAssignee, departmentAssignee, contact, createdBy, lastRepliedBy, messages |
+    | `get api/v3/ticket/tickets/{id}/messages` | sender |
+    | `get api/v3/ticket/deletedTickets` | agentAssignee, departmentAssignee, contact, createdBy, lastRepliedBy |
+    | `get api/v3/ticket/deletedTickets/{id}` | agentAssignee, departmentAssignee, contact, createdBy, lastRepliedBy, messages |
+    | `get api/v3/ticket/deletedTickets/{id}/messages` | sender |
+    | `get api/v3/ticket/portalTickets/{id}` | contact, messages |
+    | `get api/v3/ticket/portalTickets` | contact |
+    | `get api/v3/ticket/portalTickets/{id}/messages` | sender | 
 
 - Sample:
-    - request: `get api/v3/tickets/{id}?include=agentAssignee&include=contact&include=createdBy&include=messages `
+    - request: `get api/v3/ticket/tickets/{id}?include=agentAssignee&include=contact&include=createdBy&include=messages `
     - response:
 
         ``` javascript
@@ -70,18 +70,18 @@
 # Resource List 
 |Name|EndPoint|Note| 
 |---|---|---| 
-|[Ticket](#ticket)|/api/v3/tickets|| 
-|[PortalTicket](#portalTicket)|/api/v3/portalTickets|for contact|
-|[Filter](#filter)|/api/v3/tickets/filters|| 
-|[Field](#field)|/api/v3/tickets/fields|| 
-|[Attachment](#attachment)|/api/v3/tickets/attachments|| 
-|[BlockedSender](#blockedsender)|/api/v3/tickets/blockedSenders|blocked email or domain| 
-|[CannedResponse](#cannedresponse)|/api/v3/tickets/cannedResponses||
-|[Config](#config)|/api/v3/tickets/configs|site settings| 
-|[Department](#department)|/api/v3/tickets/departments|| 
-|[EmailAccount](#emailaccount)|/api/v3/tickets/emailAccounts|| 
-|[JunkEmail](#junkemail)|/api/v3/tickets/junkEmails|emails from <br/>blocked senders| 
-|[Tag](#tag)|/api/v3/tickets/tags|| 
+|[Ticket](#ticket)|/api/v3/ticket/tickets|| 
+|[PortalTicket](#portalTicket)|/api/v3/ticket/portalTickets|for contact|
+|[Filter](#filter)|/api/v3/ticket/filters|| 
+|[Field](#field)|/api/v3/ticket/fields|| 
+|[Attachment](#attachment)|/api/v3/ticket/attachments|| 
+|[BlockedSender](#blockedsender)|/api/v3/ticket/blockedSenders|blocked email or domain| 
+|[CannedResponse](#cannedresponse)|/api/v3/ticket/cannedResponses||
+|[Config](#config)|/api/v3/ticket/configs|site settings| 
+|[Department](#department)|/api/v3/ticket/departments|| 
+|[EmailAccount](#emailaccount)|/api/v3/ticket/emailAccounts|| 
+|[JunkEmail](#junkemail)|/api/v3/ticket/junkEmails|emails from <br/>blocked senders| 
+|[Tag](#tag)|/api/v3/ticket/tags|| 
 
 # Tickets 
 ## objects 
@@ -90,22 +90,22 @@
 | - | - | - | 
 | `id` | integer | id of ticket | 
 | `subject` | string | ticket subject | 
-| `agentAssigneeId` | string | agent assignee id | 
+| `agentAssigneeId` | integer | agent assignee id | 
 | `departmentAssigneeId` | integer | department assignee id | 
-| `contactId` | string | the contact guid string | 
+| `contactId` | integer | the contact id string | 
 | `receivedFrom` | string | received email address for email channel | 
 | `channel` | string | `portal`, `email`| 
 | `priority` | string | `urgent`, `high`, `normal`, `low` | 
 | `status` | string | `new`, `pendingInternal`, <br/>`pendingExternal`, `onHold`, `closed` | 
 | `isRead` | boolean | if the ticket is read | 
 | `customFields` | [custom field value](#custom-field-value)[] | custom field value array | 
-| `createdById` | string | contact id or agent id | 
+| `createdById` | integer | contact id or agent id | 
 | `createdByType` |  string | agent or contact or system | 
 | `createdTime` | datetime | create time of ticket | 
 | `lastActivityTime` | datetime | last activity time of ticket | 
 | `lastStatusChangeTime` | datetime | last status change time of ticket | 
 | `lastRepliedTime` | datetime | last replied time | 
-| `lastRepliedById` | string | contact id or agent id | 
+| `lastRepliedById` | integer | contact id or agent id | 
 | `lastRepliedByType` | string | `agent` or `contact` or `system`| 
 | `hasDraft` | boolean | if has draft | 
 | `tagIds` | integer[] | tag id array | 
@@ -121,14 +121,14 @@
 ### custom field value
 | Name | Type | Description | 
 | - | - | - | 
-| `id` | string | the id of custom field |
+| `id` | integer | the id of custom field |
 | `name` | string | the name of custom field |
 | `value` | string | the value of custom field |
 
 ### mentioned agent 
 | Name | Type | Description | 
 | - | - | - | 
-| `agentId` | string | the agent id of mentioned | 
+| `agentId` | integer | the agent id of mentioned | 
 | `isRead`| boolean | if the mentioned ticket is read | 
 | `messageId`| integer| message id| 
 
@@ -141,7 +141,7 @@
 | `htmlBody` | string | html body of message | 
 | `plainBody` | string | plain text body of message | 
 | `quote` | string | quoted content of the message, only for email message | 
-| `senderId`| string | id of agent or contact | 
+| `senderId`| integer | id of agent or contact | 
 | `senderType`| string | `agent` or `contact` or `system` | 
 | `time` | datetime | | 
 | `subject` | string | subject | 
@@ -164,12 +164,12 @@
 | `to` | string | to email address | 
 | `cc` | string | cc email addresses | 
 | `savedTime` | datetime | | 
-| `savedById` | string | the id of the agent who saved the ticket draft | 
+| `savedById` | integer | the id of the agent who saved the ticket draft | 
 | `attachments` | [attachment](#attachment)[] | draft attachments | 
 
 ## endpoints 
 ### List tickets 
-`get api/v3/tickets` 
+`get api/v3/ticket/tickets` 
 + Max 50 tickets are responded for each request. 
 + Parameters 
     - filterId: integer, filter id  
@@ -191,14 +191,14 @@
 
     | Includes | Description |
     | - | - |
-    | agentAssignee | `get api/v3/tickets?include=agentAssignee` |
-    | departmentAssignee | `get api/v3/tickets?include=departmentAssignee` |
-    | contact | `get api/v3/tickets?include=contact` |
-    | createdBy | `get api/v3/tickets?include=createdBy` |
-    | lastRepliedBy | `get api/v3/tickets?include=lastRepliedBy` | 
+    | agentAssignee | `get api/v3/ticket/tickets?include=agentAssignee` |
+    | departmentAssignee | `get api/v3/ticket/tickets?include=departmentAssignee` |
+    | contact | `get api/v3/ticket/tickets?include=contact` |
+    | createdBy | `get api/v3/ticket/tickets?include=createdBy` |
+    | lastRepliedBy | `get api/v3/ticket/tickets?include=lastRepliedBy` | 
 
 ### Get a ticket 
-`get api/v3/tickets/{id} ` 
+`get api/v3/ticket/tickets/{id} ` 
 + Parameters 
     - id: integer, ticket  
 + Response 
@@ -207,20 +207,20 @@
 
     | Includes | Description |
     | - | - |
-    | agentAssignee | `get api/v3/tickets/{id}?include=agentAssignee` |
-    | departmentAssignee | `get api/v3/tickets/{id}?include=departmentAssignee` |
-    | contact | `get api/v3/tickets/{id}?include=contact` |
-    | createdBy | `get api/v3/tickets/{id}?include=createdBy` |
-    | lastRepliedBy | `get api/v3/tickets/{id}?include=lastRepliedBy` |
-    | messages | `get api/v3/tickets/{id}?include=messages` |
+    | agentAssignee | `get api/v3/ticket/tickets/{id}?include=agentAssignee` |
+    | departmentAssignee | `get api/v3/ticket/tickets/{id}?include=departmentAssignee` |
+    | contact | `get api/v3/ticket/tickets/{id}?include=contact` |
+    | createdBy | `get api/v3/ticket/tickets/{id}?include=createdBy` |
+    | lastRepliedBy | `get api/v3/ticket/tickets/{id}?include=lastRepliedBy` |
+    | messages | `get api/v3/ticket/tickets/{id}?include=messages` |
  
 ### Submit new ticket 
-`post api/v3/tickets` 
+`post api/v3/ticket/tickets` 
 - Parameters 
     - subject: string, ticket subject, required
     - channel: string, `portal`, `email`, required 
-    - contactId: string, contact id
-    - agentAssigneeId: string, agent id
+    - contactId: integer, contact id
+    - agentAssigneeId: integer, agent id
     - departmentAssigneeId: integer, department id
     - priority: string, `urgent`, `high`, `normal`, `low`, default value: `normal` 
     - status: string, `new`, `pendingInternal`, `pendingExternal,`, `onHold`, `closed`, default value: `new`  
@@ -239,7 +239,7 @@
     - ticket: [ticket](#tickets)
 
 ### List ticket messages 
-`get api/v3/tickets/{id}/messages` 
+`get api/v3/ticket/tickets/{id}/messages` 
 + Parameters 
     - id: integer, ticket id 
 + Response 
@@ -248,15 +248,15 @@
 
     | Includes | Description |
     | - | - |
-    | sender | `get api/v3/tickets/{id}/messages?include=sender` |
+    | sender | `get api/v3/ticket/tickets/{id}/messages?include=sender` |
 
 ### Update ticket 
-`put api/v3/tickets/{id}` 
+`put api/v3/ticket/tickets/{id}` 
 - Parameters 
     - id: integer, ticket id
     - subject: string, ticket subject
-    - contactId: string, the contact id or agent id
-    - agentAssigneeId: string, agent id
+    - contactId: integer, the contact id or agent id
+    - agentAssigneeId: integer, agent id
     - departmentAssigneeId: integer, department id
     - priority: string, priority: `urgent`, `high`, `normal`, `low`
     - status: string, `new`, `pendingInternal`, `pendingExternal,`, `onHold`, `closed`
@@ -267,19 +267,19 @@
     - ticket: [ticket](#ticket) 
 
 ### Batch update ticket 
-`put api/v3/tickets/` 
+`put api/v3/ticket/tickets/` 
 + Parameters 
     - ids: integer[], ticket id array
     - status, string
     - priority, string
-    - agentAssigneeId, string
+    - agentAssigneeId, integer
     - departmentAssigneeId, integer
     - isRead, boolean
 + Response 
     - tickets: [ticket](#ticket) list 
 
 ### Reply ticket 
-`post api/v3/tickets/{id}/messages` 
+`post api/v3/ticket/tickets/{id}/messages` 
 - Parameters  
     - type: string, `note`, `email`, `reply`, required
     - source: string, `agentConsole`, `API`, default value: `API`
@@ -293,35 +293,35 @@
     - message: [message](#message) 
 
 ### Mark ticket as read 
-`put api/v3/tickets/{id}/read` 
+`put api/v3/ticket/tickets/{id}/read` 
 + Parameters 
-    - id: ticketId 
+    - id: integer, ticket id 
 + Response 
     - ticket: [ticket](#ticket)
 
 ### Mark ticket as unread 
-`put api/v3/tickets/{id}/unread` 
+`put api/v3/ticket/tickets/{id}/unread` 
 + Parameters 
     - id: ticketId 
 + Response 
     - ticket: [ticket](#ticket)
 
 ### Delete a ticket 
-`delete api/v3/tickets/{id}` 
+`delete api/v3/ticket/tickets/{id}` 
 - Parameters 
-    - id: integer 
+    - id: integer, ticket id
 - Response 
     - http status code 
 
 ### Batch delete tickets 
-`delete api/v3/tickets` 
+`delete api/v3/ticket/tickets` 
 + Parameters 
     - ids: integer[], id array
 + Response 
     - http status code 
 
 ### List deleted tickets 
-`get api/v3/deletedTickets/` 
+`get api/v3/ticket/deletedTickets/` 
 - Parameters 
     - keywords: string
     - pageIndex: integer
@@ -337,14 +337,14 @@
 
     | Includes | Description |
     | - | - |
-    | agentAssignee | `get api/v3/deletedTickets?include=agentAssignee` |
-    | departmentAssignee | `get api/v3/deletedTickets?include=departmentAssignee` |
-    | contact | `get api/v3/deletedTickets?include=contact` |
-    | createdBy | `get api/v3/deletedTickets?include=createdBy` |
-    | lastRepliedBy | `get api/v3/deletedTickets?include=lastRepliedBy` | 
+    | agentAssignee | `get api/v3/ticket/deletedTickets?include=agentAssignee` |
+    | departmentAssignee | `get api/v3/ticket/deletedTickets?include=departmentAssignee` |
+    | contact | `get api/v3/ticket/deletedTickets?include=contact` |
+    | createdBy | `get api/v3/ticket/deletedTickets?include=createdBy` |
+    | lastRepliedBy | `get api/v3/ticket/deletedTickets?include=lastRepliedBy` | 
 
 ### Get a deleted ticket 
-`get api/v3/deletedTickets/{id}` 
+`get api/v3/ticket/deletedTickets/{id}` 
 - Parameters 
     - id: integer, ticket id 
 - Response 
@@ -353,70 +353,70 @@
 
     | Includes | Description |
     | - | - |
-    | agentAssignee | `get api/v3/deletedTickets/{id}?include=agentAssignee` |
-    | departmentAssignee | `get api/v3/deletedTickets/{id}?include=departmentAssignee` |
-    | contact | `get api/v3/deletedTickets/{id}?include=contact` |
-    | createdBy | `get api/v3/deletedTickets/{id}?include=createdBy` |
-    | lastRepliedBy | `get api/v3/deletedTickets/{id}?include=lastRepliedBy` |
-    | messages | `get api/v3/deletedTickets/{id}?include=messages` |
+    | agentAssignee | `get api/v3/ticket/deletedTickets/{id}?include=agentAssignee` |
+    | departmentAssignee | `get api/v3/ticket/deletedTickets/{id}?include=departmentAssignee` |
+    | contact | `get api/v3/ticket/deletedTickets/{id}?include=contact` |
+    | createdBy | `get api/v3/ticket/deletedTickets/{id}?include=createdBy` |
+    | lastRepliedBy | `get api/v3/ticket/deletedTickets/{id}?include=lastRepliedBy` |
+    | messages | `get api/v3/ticket/deletedTickets/{id}?include=messages` |
 
 ### List deleted ticket messages
-`get api/v3/deletedTickets/{id}/messages` 
+`get api/v3/ticket/deletedTickets/{id}/messages` 
 - Parameters 
-    - id: integer 
+    - id: integer, ticket id
 - Response 
     - messages: [message](#message) 
 - Includes
 
     | Includes | Description |
     | - | - |
-    | sender | `get api/v3/deletedTickets/{id}/messages?include=sender` |
+    | sender | `get api/v3/ticket/deletedTickets/{id}/messages?include=sender` |
 
 
 ### Restore a deleted ticket 
-`post api/v3/deletedTickets/{id}/restore ` 
+`post api/v3/ticket/deletedTickets/{id}/restore ` 
 - Parameters 
     - id: integer, ticket id 
 - Response 
     - deletedTicket: [ticket](#ticket)  
 
 ### Delete a ticket permanently 
-`delete api/v3/deletedTickets/{id}` 
+`delete api/v3/ticket/deletedTickets/{id}` 
 - Parameters 
     - id: integer, ticket id 
 - Response 
     - http status code 
 
 ### Get ticket draft 
-`get api/v3/tickets/{id}/draft` 
+`get api/v3/ticket/tickets/{id}/draft` 
 - Parameters 
     - id: integer, ticket id 
 - Response 
     - ticketDraft: [ticket draft](#ticket-draft) 
 
 ### Create ticket draft 
-`post api/v3/tickets/{id}/draft` 
+`post api/v3/ticket/tickets/{id}/draft` 
 - Parameters 
     - [ticket draft](#ticket-draft) 
 - Response 
     - ticketDraft: [ticket draft](#ticket-draft) 
 
 ### Update ticket draft 
-`put api/v3/tickets/{id}/draft` 
+`put api/v3/ticket/tickets/{id}/draft` 
 - Parameters 
     - [ticket draft](#ticket-draft) 
 - Response 
     - ticketDraft: [ticket draft](#ticket-draft) 
 
 ### Delete ticket draft 
-`delete api/v3/tickets/{id}/draft` 
+`delete api/v3/ticket/tickets/{id}/draft` 
 - Parameters 
     - id: integer, ticket id 
 - Response 
     - http status code 
 
 ### Merge ticket 
-`post api/v3/tickets/{id}/merge`
+`post api/v3/ticket/tickets/{id}/merge`
 - Parameters 
     - id: integer, target ticket id, 
     - sourceId: integer, source ticket id 
@@ -424,7 +424,7 @@
     - ticket: [ticket](#ticket) 
 
 ### List unread tickets number of filters 
-`get api/v3/tickets/unreadCount?filterIds={filterid1}&filterIds={filterid2}&filterIds={filterid3}`
+`get api/v3/ticket/tickets/unreadCount?filterIds={filterid1}&filterIds={filterid2}&filterIds={filterid3}`
 - Parameters 
     - filterIds: filter id array 
 - Response 
@@ -441,7 +441,7 @@
 | - | - | - |
 | `id` | integer | id of ticket |
 | `subject` | string | subject |
-| `contactId` | string | id of the contact who submitted the portal ticket |
+| `contactId` | integer | id of the contact who submitted the portal ticket |
 | `isClosed` | boolean | if the portal ticket is closed |
 | `customFields` | [custom field value](#custom-field-value)[] | custom field value array |
 | `createdTime` | datetime | create time |
@@ -453,43 +453,43 @@
 | `id` | integer | id of message | 
 | `htmlBody` | string | html body | 
 | `plainBody` | string | plain text body | 
-| `senderId`| string | id of agent or contact | 
+| `senderId`| integer | id of agent or contact | 
 | `senderType`| string | `agent` or `contact` or `system` | 
 | `time` | datetime | |   
 | `attachments` | [attachment](#attachment)[] | attachment array| 
 
 ## endpoints
 ### Get a portal ticket by id
-`get api/v3/portalTickets/{id}`
+`get api/v3/ticket/portalTickets/{id}`
 - Parameters
-    - id, integer, id
-    - contactId, string
+    - id, integer, portal ticket id
+    - contactId, integer
 - Response
     - portalTicket: [portal ticket](#portal-ticket) 
 - Includes
 
     |Includes| Description |
     | - | - |
-    | contact | `get api/v3/portalTickets/{id}?include=contact` | 
-    | messages | `get api/v3/portalTickets/{id}?include=messages` |
+    | contact | `get api/v3/ticket/portalTickets/{id}?include=contact` | 
+    | messages | `get api/v3/ticket/portalTickets/{id}?include=messages` |
  
 ### List portal tickets
-`get api/v3/portalTickets`
+`get api/v3/ticket/portalTickets`
 - Parameters:
-    - contactId, string, required
+    - contactId, integer, required
 - Response: 
     - portalTickets: [portal ticket](#portal-ticket) list
 - Includes
 
     |Includes| Description |
     | - | - |
-    | contact | `get api/v3/portalTickets?include=contact` |  
+    | contact | `get api/v3/ticket/portalTickets?include=contact` |  
 
 ### Submit a portal ticket
-`post api/v3/portalTickets`
+`post api/v3/ticket/portalTickets`
 - Parameters: 
     - subject: string, subject, required
-    - contactId: string, id of the contact who submitted the portal ticket
+    - contactId: integer, id of the contact who submitted the portal ticket
     - customFields: [custom field value](#custom-field-value)[], custom field value array
     - message:  the first portal message
         - htmlBody: string, html body
@@ -499,37 +499,37 @@
   - portalTicket: [portal ticket](#portal-ticket) 
 
 ### Close portalTicket
-`put api/v3/portalTickets/{id}/close` 
+`put api/v3/ticket/portalTickets/{id}/close` 
 - Parameters: 
-    - id, integer, ticket id,
+    - id, integer, portal ticket id,
 - Response: 
     - portalTicket: [portal ticket](#portal-ticket) 
 
 ### Reopen portalTicket
-`put api/v3/portalTickets/{id}/reopen` 
+`put api/v3/ticket/portalTickets/{id}/reopen` 
 - Parameters: 
-    - id, integer, ticket id,
+    - id, integer, portal ticket id,
 - Response: 
     - portalTicket: [portal ticket](#portal-ticket) 
 
 ### List portal ticket messages
-`get api/v3/portalTickets/{id}/messages`
+`get api/v3/ticket/portalTickets/{id}/messages`
 - Parameters: 
     - id, integer
-    - contactId, string
+    - contactId, integer
 - Response: 
     - messages: [portal ticket message](#portal-ticket-message) list
 - Includes
 
     |Includes| Description |
     | - | - |
-    | sender| `get api/v3/portalTickets/{id}/messages?include=sender` | 
+    | sender| `get api/v3/ticket/portalTickets/{id}/messages?include=sender` | 
 
 ### Reply portal ticket
- `post api/v3/portalTickets/{id}/messages`
+ `post api/v3/ticket/portalTickets/{id}/messages`
 - Parameters:
     - id: integer
-    - contactId: string
+    - contactId: integer
     - htmlBody: string, html body
     - plainBody: string, plain text
     - attachments: [attachment](#attachment)[], attachment array
@@ -557,14 +557,14 @@
 
 ## endpoints 
 ### List all public and private filters 
-`get /api/v3/tickets/filters`
+`get /api/v3/ticket/filters`
 - Parameters 
     - no parameters 
 - Response 
     - filters: [filter](#filter) list, without conditions
 
 ### Create a new filter 
-`post api/v3/tickets/filters`
+`post api/v3/ticket/filters`
 - Parameters 
     - name: string, filter name, required 
     - isPrivate: boolean, if private filter, default value: `false` 
@@ -573,14 +573,14 @@
     - filters: [filter](#filter) list 
 
 ### Get a filter and its conditions 
-`get api/v3/tickets/filters/{id}` 
+`get api/v3/ticket/filters/{id}` 
 - Parameters 
     - id: integer, filter id 
 - Response 
     - filter: [filter](#filter) 
 
 ### Update filter 
-`put api/v3/tickets/filters/{id}` 
+`put api/v3/ticket/filters/{id}` 
 - Parameters 
     - id: integer, filter id 
     - name: string, filter name, required 
@@ -590,7 +590,7 @@
     - filter: [filter](#filter) 
 
 ### Delete filter 
-`delete api/v3/tickets/filters/{id}` 
+`delete api/v3/ticket/filters/{id}` 
 - Parameters 
     - id: integer, filter id 
 - Response 
@@ -622,7 +622,7 @@
 
 ## endpoints 
 ### List all fields and their options 
-`get api/v3/tickets/fields` 
+`get api/v3/ticket/fields` 
 - Parameters
     - no parameters
 - Response 
@@ -639,7 +639,7 @@
 | `isAvailable` | boolean | if the attachment is available | 
 ## endpoints 
 ### Upload attachment 
-`post /api/v3/tickets/attachments` 
+`post /api/v3/ticket/attachments` 
 - Content-type
     - multipart/form-data
 - Parameters 
@@ -657,14 +657,14 @@
 
 ## endpoints 
 ### List blocked senders 
-`get /api/v3/tickets/blockedSenders` 
+`get /api/v3/ticket/blockedSenders` 
 - Parameters 
     - email: string, domain or email address 
 - Response 
     - blockedSenders: [block sender](#blocked-sender) list 
 
 ### Add/update block sender 
-`put api/v3/tickets/blockedSenders` 
+`put api/v3/ticket/blockedSenders` 
 - Parameters 
     - `email`, string, domain or email address 
     - `blockType`, string, `blockEmailasJunk`, `rejectEmail`, `blockDomainasJunk`, `rejectDomain`
@@ -672,7 +672,7 @@
     - blockedSender: [block sender](#blocked-sender) 
 
 ### Remove block sender 
-`delete api/v3/tickets/blockedSenders` 
+`delete api/v3/ticket/blockedSenders` 
 - Parameters 
    - email: string, domain or email address 
 - Response 
@@ -691,7 +691,7 @@
 
 ## endpoints 
 ### List all canned responses 
-`get api/v3/tickets/cannedResponses` 
+`get api/v3/ticket/cannedResponses` 
 - Parameters 
     - no parameters
 - Response 
@@ -700,7 +700,7 @@
 
 # Configs 
 ### Get site configs about ticket 
-`get api/v3/tickets/configs` 
+`get api/v3/ticket/configs` 
 - Parameters 
     - no parameters
 - Response 
@@ -727,12 +727,12 @@
 
 ## endpoints 
 ### Get one department 
-`get api/v3/tickets/departments/{id} ` 
+`get api/v3/ticket/departments/{id} ` 
 - Response 
     - department: [department](#department) 
 
 ### List all departments 
-`get api/v3/tickets/departments` 
+`get api/v3/ticket/departments` 
 - Response 
     - departments: [department](#department) List without department member. 
 
@@ -744,14 +744,14 @@
 | `id` | integer | id | 
 | `email` | string | email address |  
 | `type` | string | pop3 or exchange | 
-| `agentAssigneeId` | string | agent id | 
+| `agentAssigneeId` | integer | agent id | 
 | `departmentAssigneeId` | integer | department id | 
 | `isDefault` | boolean | if default email account | 
 
 
 ## endpoints 
 ### List all enabled email accounts 
-`get api/v3/tickets/emailAccounts` 
+`get api/v3/ticket/emailAccounts` 
 - Response 
     - emailAccounts: [email account](#email-account) list 
 
@@ -775,7 +775,7 @@
 
 ## endpoints 
 ### List junk emails
-`get api/v3/tickets/junkEmails` 
+`get api/v3/ticket/junkEmails` 
 
 - Parameters 
     - keywords: string
@@ -790,28 +790,28 @@
     - currentPage: string
 
 ### Get a junk email 
-`get api/v3/tickets/junkEmails/{id}` 
+`get api/v3/ticket/junkEmails/{id}` 
 - Parameters 
     - id: integer, email id 
 - Response 
     - junkEmail: [junk email](#junk-email) 
 
 ### Update junk email 
-`put api/v3/tickets/junkEmails/{id}` 
+`put api/v3/ticket/junkEmails/{id}` 
 - Parameters 
     - isRead: boolean, 
 - Response 
     - junkEmail: [junk email](#junk-email) 
 
 ### Restore a junk email to a normal ticket 
-`post api/v3/tickets/junkEmails/{id}/notJunk` 
+`post api/v3/ticket/junkEmails/{id}/notJunk` 
 - Parameters 
     - id: integer, email id 
 - Response 
     - ticket: [ticket](#ticket) 
 
 ### Delete a junk email 
-`delete api/v3/tickets/junkEmails/{id}` 
+`delete api/v3/ticket/junkEmails/{id}` 
 - Parameters 
     - id: integer, junk email id 
 - Response 
@@ -827,19 +827,19 @@
 | `ticketCount` | integer | the count of tickets with the tag | 
 ## endpoints 
 ### List all tags 
-`Get api/v3/tickets/tags` 
+`Get api/v3/ticket/tags` 
 - Response 
     - tags: [tag](#tag) list 
 
 ### Add a tag 
-`Post api/v3/tickets/tags` 
+`Post api/v3/ticket/tags` 
 - Parameters 
     - name: string, tag name 
 - Response 
     - tag: [tag](#tag) 
 
 ### Update One Tag 
-`Put api/v3/tickets/tags/{id}` 
+`Put api/v3/ticket/tags/{id}` 
 - Parameters 
     - id: integer, tag id 
     - name: string, tag name 
@@ -847,7 +847,7 @@
     - tag: [tag](#tag) 
 
 ### Delete a tag 
-`Delete api/v3/tickets/tags/{id}` 
+`Delete api/v3/ticket/tags/{id}` 
 - Parameters 
     - id: integer, tag id 
 - Response 
