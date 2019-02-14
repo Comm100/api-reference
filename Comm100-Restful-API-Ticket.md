@@ -92,7 +92,7 @@
 | `subject` | string | ticket subject | 
 | `agentAssigneeId` | integer | agent assignee id | 
 | `departmentAssigneeId` | integer | department assignee id | 
-| `contactId` | long | contact id | 
+| `contactId` | integer | contact id | 
 | `receivedFrom` | string | received email address for email channel | 
 | `channel` | string | `portal`, `email`| 
 | `priority` | string | `urgent`, `high`, `normal`, `low` | 
@@ -219,7 +219,7 @@
 - Parameters 
     - subject: string, ticket subject, required
     - channel: string, `portal`, `email`, required 
-    - contactId: long, contact id
+    - contactId: integer, contact id
     - agentAssigneeId: integer, agent id
     - departmentAssigneeId: integer, department id
     - priority: string, `urgent`, `high`, `normal`, `low`, default value: `normal` 
@@ -255,7 +255,7 @@
 - Parameters 
     - id: integer, ticket id
     - subject: string, ticket subject
-    - contactId: long, the contact id
+    - contactId: integer, the contact id
     - agentAssigneeId: integer, agent id
     - departmentAssigneeId: integer, department id
     - priority: string, priority: `urgent`, `high`, `normal`, `low`
@@ -441,7 +441,7 @@
 | - | - | - |
 | `id` | integer | id of ticket |
 | `subject` | string | subject |
-| `contactId` | long | id of the contact who submitted the portal ticket |
+| `contactId` | integer | id of the contact who submitted the portal ticket |
 | `isClosed` | boolean | if the portal ticket is closed |
 | `customFields` | [custom field value](#custom-field-value)[] | custom field value array |
 | `createdTime` | datetime | create time |
@@ -463,7 +463,7 @@
 `get api/v3/ticket/portalTickets/{id}`
 - Parameters
     - id, integer, portal ticket id
-    - contactId, long
+    - contactId, integer
 - Response
     - portalTicket: [portal ticket](#portal-ticket) 
 - Includes
@@ -476,7 +476,7 @@
 ### List portal tickets
 `get api/v3/ticket/portalTickets`
 - Parameters:
-    - contactId, long, required
+    - contactId, integer, required
 - Response: 
     - portalTickets: [portal ticket](#portal-ticket) list
 - Includes
@@ -489,7 +489,7 @@
 `post api/v3/ticket/portalTickets`
 - Parameters: 
     - subject: string, subject, required
-    - contactId: long, id of the contact who submitted the portal ticket
+    - contactId: integer, id of the contact who submitted the portal ticket
     - customFields: [custom field value](#custom-field-value)[], custom field value array
     - message:  the first portal message
         - htmlBody: string, html body
@@ -516,7 +516,7 @@
 `get api/v3/ticket/portalTickets/{id}/messages`
 - Parameters: 
     - id, integer
-    - contactId, long
+    - contactId, integer
 - Response: 
     - messages: [portal ticket message](#portal-ticket-message) list
 - Includes
@@ -529,7 +529,7 @@
  `post api/v3/ticket/portalTickets/{id}/messages`
 - Parameters:
     - id: integer
-    - contactId: long
+    - contactId: integer
     - htmlBody: string, html body
     - plainBody: string, plain text
     - attachments: [attachment](#attachment)[], attachment array
