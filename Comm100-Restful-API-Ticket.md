@@ -302,7 +302,7 @@
 ### Mark ticket as unread 
 `put api/v3/ticket/tickets/{id}/unread` 
 + Parameters 
-    - id: ticketId 
+    - id: integer, ticket id 
 + Response 
     - ticket: [ticket](#ticket)
 
