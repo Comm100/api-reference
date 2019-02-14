@@ -36,20 +36,20 @@
         {
             "ticket": {
                 "id": 1,
-                "agentAssigneeId": '',
+                "agentAssigneeId": 1,
                 "agentAssignee": {  //included the agent object
-                    "id": '',
+                    "id": 1,
                     //...
                 },
-                "contactId":''
+                "contactId":2
                 "contact": {  //included the contact object
-                    "id": '',
+                    "id": 2,
                     //...
                 },
-                "createdById": '',
+                "createdById": 3,
                 "createdByType": "agent",
                 "createdBy": {  //included the agent or contact object according to the createdByType.
-                    "id": '',
+                    "id": 3,
                     //...
                 },
                 "messages":[    //included the messages.
