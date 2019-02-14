@@ -46,7 +46,7 @@
         city: '', //string
         stateOrProvince: '', //string
         country: '', //string
-        postcode: '', //string
+        postalOrZipCode: '', //string
         createdTime: '' //string
     },
     channel: '', //string, Portal, Email,
