@@ -29,7 +29,7 @@
     | `get api/v3/ticket/portalTickets/{id}/messages` | sender | 
 
 - Sample:
-    - request: `get api/v3/ticket/tickets/{id}?include=agentAssignee&include=contact&include=createdBy&include=messages `
+    - request: `get api/v3/ticket/tickets/{id}?include=agentAssignee,contact,createdBy,messages`
     - response:
 
         ``` javascript
