@@ -286,6 +286,7 @@
     - subject: string, for email message, email subject
     - htmlBody: string, html body of message, if you want to @mention an agent in a note, you can use the format: `<span data-id=agentId class="athighlight">note body</span>`
     - plainBody: string, plain text body of message
+    - quote: string, quote content, only for email message
     - from: string, for email type message, one of email account address 
     - cc: string, message cc emails 
     - attachments: [attachment](#attachment)[], attachment array
