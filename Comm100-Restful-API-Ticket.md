@@ -80,7 +80,7 @@
 |[Config](#config)|/api/v3/ticket/configs|site settings| 
 |[Department](#department)|/api/v3/ticket/departments|| 
 |[EmailAccount](#emailaccount)|/api/v3/ticket/emailAccounts|| 
-|[JunkEmail](#junkemail)|/api/v3/ticket/junkEmails|emails from <br/>blocked senders| 
+|[JunkEmail](#junkemails)|/api/v3/ticket/junkEmails|emails from <br/>blocked senders| 
 |[Tag](#tag)|/api/v3/ticket/tags|| 
 
 # Tickets 
