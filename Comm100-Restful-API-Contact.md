@@ -103,7 +103,7 @@
 | `stateOrProvince` | string | the state or province of the contact |
 | `country` | string |  the country of the contact |
 | `postalOrZipCode` | string | the postal or zip code of the contact |
-
+| `identities` | [identity](#identity)[] | the array of identities |
 - Response
     - contact: [contact object](#contact)
 
