@@ -136,6 +136,7 @@
 | Name | Type | Description | 
 | - | - | - | 
 | `id` | integer | id of message | 
+| `ticketId` | integer | id of ticket | 
 | `type` | string | `note`, `email`, `reply` | 
 | `source` | string | `agentConsole`, `helpDesk`, `webForm`, `API`, `chat`, `offlineMessage` | 
 | `htmlBody` | string | html body of message | 
@@ -235,6 +236,7 @@
         - subject: string, for email message, email subject
         - htmlBody: string, html body of message
         - plainBody: string, plain text body of message
+        - quote: string
         - from: string, for email type message, one of email account address 
         - cc: string, message cc emails 
         - attachments: [attachment](#attachment)[], attachment array
