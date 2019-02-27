@@ -303,14 +303,14 @@
 + Parameters 
     - id: integer, ticket id 
 + Response 
-    - ticket: [ticket](#ticket)
+    - http status code
 
 ### Mark ticket as unread 
 `put api/v3/ticket/tickets/{id}/unread` 
 + Parameters 
     - id: integer, ticket id 
 + Response 
-    - ticket: [ticket](#ticket)
+    - http status code
 
 ### Delete a ticket 
 `delete api/v3/ticket/tickets/{id}` 
