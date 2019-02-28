@@ -38,6 +38,7 @@
             }
         ],
         description: '', //string
+        alias: '', //string
         company: '', //string
         title: '', //string
         phoneNumber: '', //string
@@ -56,7 +57,6 @@
     hasDraft: true, //boolean
     receivedFrom: '', //string
     createdTime: '2018-12-08T12:03:07.563', //ISO 8601 time format
-    closedTime: '2018-12-08T12:03:07.563', //ISO 8601 time format
     lastActivityTime: '2018-12-08T12:03:07.563', //ISO 8601 time format
     lastStatusChangeTime: '2018-12-08T12:03:07.563', //ISO 8601 time format
     firstRespondBreachAt: '2018-12-08T12:03:07.563', //ISO 8601 time format
@@ -80,14 +80,6 @@
             id: 1, //number,agent id
             messageId: 1, //number, message Id
             isRead: false, //boolean
-        }
-    ],
-    attachments:[
-        { 
-            guid: "6a8f3e5f-4e31-4ee7-b074-13d0ea278eab", //string
-            url: '', //string
-            fileName:'', //string
-            isAvailable: true
         }
     ]
   }
