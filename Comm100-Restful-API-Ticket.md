@@ -508,6 +508,7 @@
 `put api/v3/ticket/portalTickets/{id}/close` 
 - Parameters: 
     - id, integer, portal ticket id,
+    - contactId, integer, required
 - Response: 
     - portalTicket: [portal ticket](#portal-ticket) 
 
@@ -515,6 +516,7 @@
 `put api/v3/ticket/portalTickets/{id}/reopen` 
 - Parameters: 
     - id, integer, portal ticket id,
+    - contactId, integer, required
 - Response: 
     - portalTicket: [portal ticket](#portal-ticket) 
 
@@ -535,7 +537,7 @@
  `post api/v3/ticket/portalTickets/{id}/messages`
 - Parameters:
     - id: integer
-    - contactId: integer
+    - contactId: integer required
     - htmlBody: string, html body
     - plainBody: string, plain text
     - attachments: [attachment](#attachment)[], attachment array
