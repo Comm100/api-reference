@@ -12,8 +12,9 @@
   | `guid` | string  | file guid |
   | `fileName` | string  | file name |
   | `fileExtension` | string  | file extension |
-  | `fileSize` | int | file sieze |
+  | `fileSize` | int | file size |
   | `fileURL` | string  | file download url | 
+  | `fileLocalPath` | string  | file local path | 
 
 ##### Response Data Format
  - Sample repsonse json:
@@ -33,9 +34,10 @@
   | `guid` | string  | file guid |
   | `fileName` | string  | file name |
   | `fileExtension` | string  | file extension |
-  | `fileSize` | int | file sieze |
+  | `fileSize` | int | file size |
   | `fileURL` | string  | file download url | 
-
+  | `fileLocalPath` | string  | file local path | 
+  
 ##### Response Data Format
  - Sample repsonse json:
 ```javascript
@@ -45,8 +47,3 @@
     "message": "", //string, option
 }
 ```
-
-
-
-
-- 实现逻辑： 用户通过API将文件上传到服务器后， Ticket系统会发送webhook到指定的URL， 等待humana 文件扫描工具的扫描，然后把结果response回来， 如果返回success，API正常返回， 否则删除缓存中上传的文件，API返回异常。
