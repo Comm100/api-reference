@@ -30,7 +30,7 @@
   | Name | Type  | Description |
   | - | - | - |
   | `event` | string  | `fileUploaded` |
-  | `chatId`| int | chat id | 
+  | `chatId`| int | chat id or offline message id| 
   | `guid` | string  | file guid |
   | `fileName` | string  | file name |
   | `fileExtension` | string  | file extension |
