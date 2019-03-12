@@ -2,8 +2,8 @@
 # Resource List 
 |Name|EndPoint|Note| 
 |---|---|---| 
-|[Contact](#contact)| /api/v3/account/contacts|for contact| 
-|[Agent](#agent)| /api/v3/account/agents|for agent|
+|[Contact](#contact)| /api/v2/account/contacts|for contact| 
+|[Agent](#agent)| /api/v2/account/agents|for agent|
 
 # Contact
 ## objects
@@ -37,14 +37,14 @@
 
 ### endpoints
 #### Get a contact by contact id
-`get  /api/v3/account/contacts/{id}`
+`get  /api/v2/account/contacts/{id}`
 - Parameters
     - id: integer, id of the contact
 - Response
     - [contact object](#contact)
 
 #### Create a contact
-`post  /api/v3/account/contacts`
+`post  /api/v2/account/contacts`
 - Parameters 
 
 | Name | Type | Description |
@@ -68,7 +68,7 @@
 
 #### Search contacts
 - Max 50 contacts are responded for each request.
-- `get  /api/v3/account/contacts`
+- `get  /api/v2/account/contacts`
 - Parameters
     - pageIndex, integer, default 1
     - keywords, string, search scope includes: name/identity value/alias 
@@ -79,14 +79,14 @@
     - nextPage: string, the last page return null.
     - currentPage: string, current page uri.
 - Example
-    - `get  /api/v3/account/contacts?keywords=comm100`
+    - `get  /api/v2/account/contacts?keywords=comm100`
 - Note
     - Deleted contact will not be included in the results.
     - The query must be URL encoded.
     - Fuzzy search is supported.
 
 #### Update a contact
-`put  /api/v3/account/contacts/{id}`
+`put  /api/v2/account/contacts/{id}`
 - Parameters
 
 | Name | Type | Description |
@@ -108,14 +108,14 @@
     - contact: [contact object](#contact)
 
 #### Delete a contact
- `delete  /api/v3/account/contacts/{id}`
+ `delete  /api/v2/account/contacts/{id}`
 - Parameters
     - id: integer, id of the contact
 - Response
     - http status code and message
 
 #### Add identity
-`post  /api/v3/account/contacts/{contactId}/identities`
+`post  /api/v2/account/contacts/{contactId}/identities`
 - Parameters
     - contactId: integer, contact id
     - type: string, identity type
@@ -124,7 +124,7 @@
     - identity: [identity object](#identity)
 
 #### Update identity
-`put  /api/v3/account/contacts/{contactId}/identities/{id}`
+`put  /api/v2/account/contacts/{contactId}/identities/{id}`
 - Parameters
     - contactId, integer, contact id
     - id, integer, contact identity id
@@ -133,7 +133,7 @@
     - identity: [identity object](#identity)
 
 #### Delete identity
- `delete  /api/v3/account/contacts/{contactId}/identities/{id}`
+ `delete  /api/v2/account/contacts/{contactId}/identities/{id}`
 - Parameters
     - contactId, integer, contact id
     - id, integer, contact identity id
