@@ -70,17 +70,17 @@
 # Resource List 
 |Name|EndPoint|Note| 
 |---|---|---| 
-|[Ticket](#ticket)|/api/v2/ticket/tickets|| 
-|[PortalTicket](#portalTicket)|/api/v2/ticket/portalTickets|for contact|
-|[Filter](#filter)|/api/v2/ticket/filters|| 
-|[Field](#field)|/api/v2/ticket/fields|| 
-|[Attachment](#attachment)|/api/v2/ticket/attachments|| 
+|[Ticket](#ticket)|/api/v2/ticket/tickets| Points for agent console| 
+|[PortalTicket](#portalTicket)|/api/v2/ticket/portalTickets| Points for portal and contacts |
+|[Filter](#filter)|/api/v2/ticket/filters| agent console filters| 
+|[Field](#field)|/api/v2/ticket/fields| system fields and custom fields | 
+|[Attachment](#attachment)|/api/v2/ticket/attachments| upload attachment for tickets | 
 |[BlockedSender](#blockedsender)|/api/v2/ticket/blockedSenders|blocked email or domain| 
-|[CannedResponse](#cannedresponse)|/api/v2/ticket/cannedResponses||
-|[Config](#config)|/api/v2/ticket/configs|site settings| 
-|[Department](#department)|/api/v2/ticket/departments|| 
-|[EmailAccount](#emailaccount)|/api/v2/ticket/emailAccounts|| 
-|[JunkEmail](#junkemails)|/api/v2/ticket/junkEmails|emails from <br/>blocked senders| 
+|[CannedResponse](#cannedresponse)|/api/v2/ticket/cannedResponses| canned response for quickly reply ticket in agent console |
+|[Config](#config)|/api/v2/ticket/configs| get site settings| 
+|[Department](#department)|/api/v2/ticket/departments|ticket departments | 
+|[EmailAccount](#emailaccount)|/api/v2/ticket/emailAccounts| email accounts| 
+|[JunkEmail](#junkemails)|/api/v2/ticket/junkEmails| emails from blocked senders| 
 |[Tag](#tag)|/api/v2/ticket/tags|| 
 
 # Tickets 
