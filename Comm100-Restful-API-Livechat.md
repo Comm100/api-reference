@@ -1,4 +1,4 @@
-﻿# LivechatRestfulAPI
+# LivechatRestfulAPI
 
 Comm100 Live Chat API allows you to pull the raw livechat data from Comm100 Live Chat into your own systems.
 
@@ -101,7 +101,6 @@ Sample response:
         "description": "this is campaign test",
         "language": "French"
     },
-    //...
 ]
 ```
 
@@ -823,7 +822,6 @@ Sample response:
             "isRequired": true,
             "options": ""
         },
-        ...
     ]
 }
 ```
@@ -923,7 +921,6 @@ Sample response:
             "isRequired": false,
             "options": "Poor Fair Good Very Good Excellent"
         },
-        ...
     ]
 }
 ```
@@ -1000,7 +997,6 @@ Sample response:
             "isRequired": true,
             "options": ""
         },
-        ...
     ]
 }
 ```
@@ -1192,7 +1188,6 @@ Sample response:
                 ]
             }
         },
-        ...
     ],
     "manualInvitation": {
         "message": {
@@ -1209,7 +1204,6 @@ Sample response:
                 "id": 4639,
                 "type": "gallery"
             },
-            ...
         }
     }
 }
@@ -1294,7 +1288,6 @@ Sample response:
                 ]
             }
         },
-        ...
     ],
     "manualInvitation": {
         "message": {
@@ -1690,7 +1683,6 @@ Sample response:
         "isRequired": false,
         "options": "Inquiry Suggestion Complaint Junk"
     },
-    ...
 ]
 ```
 
@@ -1734,7 +1726,6 @@ Sample response:
         "isRequired": false,
         "options": ""
     },
-    ...
 ]
 ```
 
@@ -2132,7 +2123,6 @@ Sample response:
             "currentText": "Yes",
             "macros": ""
         },
-        ...
     ]
 }
 ```
@@ -2199,7 +2189,6 @@ Sample response:
         "categoryId": 0,
         "shortCuts": "bye"
     },
-    ...
 ]
 ```
 
@@ -2406,7 +2395,6 @@ Sample response:
         "name": "puddddtresult",
         "parentId": 0
     },
-    ...
 ]
 ```
 
@@ -2621,7 +2609,6 @@ Sample response:
         "isLastChattedPreferred": true,
         "backupDepartmentId": 1
     },
-    ...
 ]
 ```
 
@@ -2840,7 +2827,6 @@ Sample response:
         "name": "Away",
         "isVisible": true
     },
-    ...
 ]
 ```
 
@@ -3040,7 +3026,6 @@ Sample response:
         "ipAddress": "",
         "comment": ""
     },
-    ...
 ]
 ```
 
@@ -3258,7 +3243,6 @@ Sample response:
         "assignValue": "0",
         "customVariableForAssignValue": ""
     },
-    ...
 ]
 ```
 
@@ -3472,7 +3456,6 @@ Sample response:
         },
         "notification": "None"
     },
-    ...
 ]
 ```
 
@@ -4082,10 +4065,8 @@ Sample response:
                 "isRequired": false,
                 "options": ""
             },
-            ...
         ]
     },
-    ...
 ]
 ```
 
@@ -4130,7 +4111,6 @@ Sample response:
             "isRequired": false,
             "options": ""
         },
-        ...
     ]
 }
 ```
@@ -4178,7 +4158,6 @@ Sample response:
             "isRequired": false,
             "options": ""
         },
-        ...
     ]
 }
 ```
@@ -4226,7 +4205,6 @@ Sample response:
             "isRequired": false,
             "options": ""
         },
-        ...
     ]
 }
 ```
@@ -4315,7 +4293,6 @@ Sample response:
         "event": "chatWrappedUp",
         "targetUrl": "http://www.aa.com"
     },
-    ...
 ]
 ```
 
@@ -4477,7 +4454,6 @@ Sample response:
         "value": "'lizz'",
         "hyperlink": "{!Visitor.IP}"
     },
-    ...
 ]
 ```
 
@@ -4876,7 +4852,6 @@ Sample response:
                     "type": "enumSystem",
                     "content": "If you do not want to wait, please click here to leave us a message."
                 },
-                ...
             ],
             "attachments": [],
             "postChat": {
@@ -4886,7 +4861,6 @@ Sample response:
             },
             "wrapup": null
         },
-        ...
     ]
 }
 ```
@@ -4949,7 +4923,6 @@ Sample response:
             "type": "enumSystem",
             "content": "If you do not want to wait, please click here to leave us a message."
         },
-        ...
     ],
     "attachments": [],
     "postChat": {
@@ -4999,7 +4972,7 @@ Sample response:
   - `timezone` - time zone of the `timeFrom` and `timeTo`, defaults to UTC time
   - `campaignId` - id of the campaign which the offline message
   - `departmentId` - id of the department which the offline message belongs to
-  - `contactId` - id of the contact which the offline message belongs to.
+  - `contactId` - id of the contact which this the offline message belongs to.
   - `agentId` - id of the agent that this offline message belongs to
   - `visitorSegment` - id of the visitor segment which the visitor belongs to.
   - `keywords` - the key words of inquiring the  offline message.
@@ -5049,7 +5022,6 @@ Sample response:
                 }
             ]
         },
-        ...
     ]
 }
 ```
@@ -5125,7 +5097,6 @@ Sample response:
                 "wrapup": null
             }
         },
-        ...
     ]
 }
 ```
@@ -5187,7 +5158,6 @@ Sample response:
                 }
             ]
         },
-        ...
     ]
 }
 ```
