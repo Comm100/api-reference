@@ -101,7 +101,7 @@ Sample response:
         "description": "this is campaign test",
         "language": "French"
     },
-    ...
+    //...
 ]
 ```
 
