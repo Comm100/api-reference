@@ -275,11 +275,11 @@ Sample response:
 
 ```javascript
 <!--Begin Tester Code-->
-<div id=\"livechat-button-1\"></div>
-  <script type=\"text/javascript\">
-    var Comm100API=Comm100API||{};(function(t){function e(e){var a=document.createElement(\"script\"),c=document.getElementsByTagName(\"script\")[0];a.type=\"text/javascript\",a.async=!0,a.src=e+t.site_id,c.parentNode.insertBefore(a,c)}t.chat_buttons=t.chat_buttons||[],t.chat_buttons.push({code_plan:1,div_id:\"livechat-button-1\"}),t.site_id=[SiteId],t.main_code_plan=1,e(\" \ 
-     https://hosted.comm100.com/chatserver/livechat.ashx?siteId=\"),setTimeout(function(){t.loaded||e(\" \ 
-     https://hosted.comm100.com/chatserver/livechat.ashx?siteId=\")},5e3)})(Comm100API||{})
+<div id="livechat-button-1"></div>
+  <script type="text/javascript">
+    var Comm100API=Comm100API||{};(function(t){function e(e){var a=document.createElement("script"),c=document.getElementsByTagName("script")[0];a.type="text/javascript",a.async=!0,a.src=e+t.site_id,c.parentNode.insertBefore(a,c)}t.chat_buttons=t.chat_buttons||[],t.chat_buttons.push({code_plan:1,div_id:"livechat-button-1"}),t.site_id=[SiteId],t.main_code_plan=1,e("
+     https://hosted.comm100.com/chatserver/livechat.ashx?siteId="),setTimeout(function(){t.loaded||e(" 
+     https://hosted.comm100.com/chatserver/livechat.ashx?siteId=")},5e3)})(Comm100API||{})
   </script>
 <!--End Tester Code-->
 ```
