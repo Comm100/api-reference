@@ -4999,7 +4999,7 @@ Sample response:
   - `timezone` - time zone of the `timeFrom` and `timeTo`, defaults to UTC time
   - `campaignId` - id of the campaign which the offline message
   - `departmentId` - id of the department which the offline message belongs to
-  - `contactId` - id of the contact which the chat belongs to.
+  - `contactId` - id of the contact which the offline message belongs to.
   - `agentId` - id of the agent that this offline message belongs to
   - `visitorSegment` - id of the visitor segment which the visitor belongs to.
   - `keywords` - the key words of inquiring the  offline message.
