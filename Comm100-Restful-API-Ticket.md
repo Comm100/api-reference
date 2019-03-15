@@ -9,7 +9,7 @@
     - Get API passes parameters through the query string 
     - Put/Post API passes parameters through json data. 
     - DateTime Parameters: 
-        - The input time parameter needs to conform to the standard format of is-8601, for reference: <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">wikipedia</a> 
+        - The input time parameter needs to conform to the standard format of iso-8601, for reference: <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">wikipedia</a> 
     - The total size of all of a ticket's attachments cannot exceed 20MB.
 - All time values are UTC time and the caller converts as their time zone as required. 
 
