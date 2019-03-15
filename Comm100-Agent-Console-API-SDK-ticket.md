@@ -149,20 +149,20 @@
   ```
 
 ## Ticket
-### get the information of current ticket
+### Get the information of current ticket
 
 ```javascript
 /** @type {object(ticket)} **/
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket');
 ```
 
-### subject
+### Subject
    
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.subject');
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.subject', value);
 ```
-### contact
+### Contact
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.contact'); 
@@ -172,7 +172,7 @@ Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.contact', value);
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.contact', { id: 1 });
 ```
 
-### department assignee
+### Department assignee
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.departmentAssignee');
@@ -180,7 +180,7 @@ Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.departmentAssignee
 //Example
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.departmentAssignee', { id: 1 });
 ```
-### agent assignee
+### Agent assignee
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.agentAssignee');
@@ -189,20 +189,20 @@ Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.agentAssignee', va
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.agentAssignee', {id: 1 });
 ```
 
-### priority
+### Priority
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.priority');
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.priority', value);
 ```
 
-### status
+### Status
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.status');
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.status', value);
 ```
-### tags
+### Tags
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.tags');
@@ -213,7 +213,7 @@ Comm100AgentConsoleAPI.do('agentconsole.ticket.currentTicket.tags.add', {id: 1})
 Comm100AgentConsoleAPI.do('agentconsole.ticket.currentTicket.tags.remove', {id: 1});
 ```
 
-### custom fields
+### Custom fields
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.customFields:[field id]');
@@ -224,7 +224,7 @@ Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.customFields:123',
 
 # Event
 ## Change Events
-- this event is triggered when ticket property value has changed.
+- This event is triggered when ticket property value has changed.
 
 ```javascript
     const propertyChangedEvent = {
