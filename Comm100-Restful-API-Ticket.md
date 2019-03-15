@@ -2,19 +2,19 @@
 - Comm100 Ticket API provides 2 authentication methods: 
     - API_key Authentication 
     - OAuth Authentication 
-- [Reference document](https://www.comm100.com/doc/api/introduction.htm#/) 
+- [document](https://www.comm100.com/doc/api/introduction.htm#/) 
 
-# Parameter explanation 
+# Parameter introduction 
 - Incoming parameters:
     - Get API passes parameters through the query string 
     - Put/Post API passes parameters through json data. 
     - DateTime Parameters: 
-        - The input time parameter needs to conform to the standard format of iso-8601, for reference: <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">wikipedia</a> 
-    - The total size of all of a ticket's attachments cannot exceed 20MB.
-- All time values are UTC time and the caller converts as their time zone as required. 
+        - All time parameters need to be entered in the standard format of <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a>
+    - The maximum size for a ticket’s attachments is 20MB.
+- All time values are UTC time. The caller can convert to different time zones where needed. 
 
 # Includes
-- Following APIs support `Includes` to get related objects.
+- Following APIs can use `Includes` as parameters to get related objects.
 
     | Endpoints | Support including parameters |
     | - | - |
@@ -72,15 +72,15 @@
 |---|---|---| 
 |[Ticket](#ticket)|/api/v2/ticket/tickets| Points for agent console| 
 |[PortalTicket](#portalTicket)|/api/v2/ticket/portalTickets| Points for portal and contacts |
-|[Filter](#filter)|/api/v2/ticket/filters| agent console filters| 
-|[Field](#field)|/api/v2/ticket/fields| system fields and custom fields | 
-|[Attachment](#attachment)|/api/v2/ticket/attachments| upload attachment for tickets | 
-|[BlockedSender](#blockedsender)|/api/v2/ticket/blockedSenders|blocked email or domain| 
-|[CannedResponse](#cannedresponse)|/api/v2/ticket/cannedResponses| canned response for quickly reply ticket in agent console |
-|[Config](#config)|/api/v2/ticket/configs| get site settings| 
-|[Department](#department)|/api/v2/ticket/departments|ticket departments | 
-|[EmailAccount](#emailaccount)|/api/v2/ticket/emailAccounts| email accounts| 
-|[JunkEmail](#junkemails)|/api/v2/ticket/junkEmails| emails from blocked senders| 
+|[Filter](#filter)|/api/v2/ticket/filters| Agent console filters| 
+|[Field](#field)|/api/v2/ticket/fields| System fields and custom fields | 
+|[Attachment](#attachment)|/api/v2/ticket/attachments| Upload attachment for tickets | 
+|[BlockedSender](#blockedsender)|/api/v2/ticket/blockedSenders|Blocked email or domain| 
+|[CannedResponse](#cannedresponse)|/api/v2/ticket/cannedResponses| Canned response for quickly reply ticket in agent console |
+|[Config](#config)|/api/v2/ticket/configs| Get site settings| 
+|[Department](#department)|/api/v2/ticket/departments|Ticket departments | 
+|[EmailAccount](#emailaccount)|/api/v2/ticket/emailAccounts| Email accounts| 
+|[JunkEmail](#junkemails)|/api/v2/ticket/junkEmails| Emails from blocked senders| 
 |[Tag](#tag)|/api/v2/ticket/tags|| 
 
 # Tickets 
@@ -144,10 +144,10 @@
 | `quote` | string | quoted content of the message, only for email message | 
 | `senderId`| integer | id of agent or contact | 
 | `senderType`| string | `agent` or `contact` or `system` | 
-| `time` | datetime | | 
+| `time` | datetime | the sent time of the message | 
 | `subject` | string | subject | 
 | `from` | string | from email address| 
-| `to` | string | | 
+| `to` | string | the to email addresses | 
 | `cc` | string | cc email addresses |  
 | `attachments` | [attachment](#attachment)[] | attachment array| 
 | `mentionedAgentIds` | integer[] | only for Note, @mentioned agents id array |
@@ -171,13 +171,13 @@
 ## endpoints 
 ### List tickets 
 `get api/v2/ticket/tickets` 
-+ Max 50 tickets are responded for each request. 
++ Each request returns a maximum of 50 tickets. 
 + Parameters 
     - filterId: integer, filter id  
     - tagId: integer, tag id
     - keywords: string
     - timeFrom: DateTime, last reply time, default search the last 30 days
-    - timeTo: DateTime, last reply time, defautl value is the current time
+    - timeTo: DateTime, last reply time, default value is the current time
     - timeZoneOffset, float, time zone of your time parameters
     - pageIndex: integer
     - sortBy: string, `nextSLABreach`, `lastReplyTime`, `lastActivityTime`, `priority`, `status` , default value: `lastReplyTime`
@@ -219,7 +219,7 @@
     | lastRepliedBy | `get api/v2/ticket/tickets/{id}?include=lastRepliedBy` |
     | messages | `get api/v2/ticket/tickets/{id}?include=messages` |
  
-### Submit new ticket 
+### Submit a new ticket 
 `post api/v2/ticket/tickets` 
 - Parameters 
     - subject: string, ticket subject, required
@@ -244,7 +244,7 @@
 + Response 
     - ticket: [ticket](#tickets)
 
-### List ticket messages 
+### List messages of a ticket 
 `get api/v2/ticket/tickets/{id}/messages` 
 + Parameters 
     - id: integer, ticket id 
@@ -256,7 +256,7 @@
     | - | - |
     | sender | `get api/v2/ticket/tickets/{id}/messages?include=sender` |
 
-### Update ticket 
+### Update a ticket 
 `put api/v2/ticket/tickets/{id}` 
 - Parameters 
     - id: integer, ticket id
@@ -272,7 +272,7 @@
 - Response 
     - ticket: [ticket](#ticket) 
 
-### Batch update ticket 
+### Batch update tickets
 `put api/v2/ticket/tickets/` 
 + Parameters 
     - ids: integer[], ticket id array
@@ -284,7 +284,7 @@
 + Response 
     - tickets: [ticket](#ticket) list 
 
-### Reply ticket 
+### Reply a ticket 
 `post api/v2/ticket/tickets/{id}/messages` 
 - Parameters  
     - type: string, `note`, `email`, `reply`, required
@@ -299,14 +299,14 @@
 - Response 
     - message: [message](#message) 
 
-### Mark ticket as read 
+### Mark a ticket as read 
 `put api/v2/ticket/tickets/{id}/read` 
 + Parameters 
     - id: integer, ticket id 
 + Response 
     - http status code
 
-### Mark ticket as unread 
+### Mark a ticket as unread 
 `put api/v2/ticket/tickets/{id}/unread` 
 + Parameters 
     - id: integer, ticket id 
@@ -367,7 +367,7 @@
     | lastRepliedBy | `get api/v2/ticket/deletedTickets/{id}?include=lastRepliedBy` |
     | messages | `get api/v2/ticket/deletedTickets/{id}?include=messages` |
 
-### List deleted ticket messages
+### List messages of a deleted ticket
 `get api/v2/ticket/deletedTickets/{id}/messages` 
 - Parameters 
     - id: integer, ticket id
@@ -394,35 +394,35 @@
 - Response 
     - http status code 
 
-### Get ticket draft 
+### Get a ticket draft 
 `get api/v2/ticket/tickets/{id}/draft` 
 - Parameters 
     - id: integer, ticket id 
 - Response 
     - ticketDraft: [ticket draft](#ticket-draft) 
 
-### Create ticket draft 
+### Create a ticket draft 
 `post api/v2/ticket/tickets/{id}/draft` 
 - Parameters 
     - [ticket draft](#ticket-draft) 
 - Response 
     - ticketDraft: [ticket draft](#ticket-draft) 
 
-### Update ticket draft 
+### Update a ticket draft 
 `put api/v2/ticket/tickets/{id}/draft` 
 - Parameters 
     - [ticket draft](#ticket-draft) 
 - Response 
     - ticketDraft: [ticket draft](#ticket-draft) 
 
-### Delete ticket draft 
+### Delete a ticket draft 
 `delete api/v2/ticket/tickets/{id}/draft` 
 - Parameters 
     - id: integer, ticket id 
 - Response 
     - http status code 
 
-### Merge ticket 
+### Merge a ticket 
 `post api/v2/ticket/tickets/{id}/merge`
 - Parameters 
     - id: integer, target ticket id, 
@@ -430,7 +430,7 @@
 - Response 
     - ticket: [ticket](#ticket) 
 
-### List unread tickets number of filters 
+### List unread tickets number for filters 
 `get api/v2/ticket/tickets/unreadCount?filterIds={filterid1}&filterIds={filterid2}&filterIds={filterid3}`
 - Parameters 
     - filterIds: filter id array 
@@ -506,7 +506,7 @@
 - Response: 
   - portalTicket: [portal ticket](#portal-ticket) 
 
-### Close portalTicket
+### Close a portalTicket
 `put api/v2/ticket/portalTickets/{id}/close` 
 - Parameters: 
     - id, integer, portal ticket id,
@@ -514,7 +514,7 @@
 - Response: 
     - portalTicket: [portal ticket](#portal-ticket) 
 
-### Reopen portalTicket
+### Reopen a portalTicket
 `put api/v2/ticket/portalTickets/{id}/reopen` 
 - Parameters: 
     - id, integer, portal ticket id,
@@ -522,7 +522,7 @@
 - Response: 
     - portalTicket: [portal ticket](#portal-ticket) 
 
-### List portal ticket messages
+### List messages of a portal ticket 
 `get api/v2/ticket/portalTickets/{id}/messages`
 - Parameters: 
     - id, integer
@@ -535,7 +535,7 @@
     | - | - |
     | sender| `get api/v2/ticket/portalTickets/{id}/messages?include=sender` | 
 
-### Reply portal ticket
+### Reply a portal ticket
  `post api/v2/ticket/portalTickets/{id}/messages`
 - Parameters:
     - id: integer
@@ -589,7 +589,7 @@
 - Response 
     - filter: [filter](#filter) 
 
-### Update filter 
+### Update a filter 
 `put api/v2/ticket/filters/{id}` 
 - Parameters 
     - id: integer, filter id 
@@ -599,7 +599,7 @@
 - Response 
     - filter: [filter](#filter) 
 
-### Delete filter 
+### Delete a filter 
 `delete api/v2/ticket/filters/{id}` 
 - Parameters 
     - id: integer, filter id 
@@ -673,7 +673,7 @@
 - Response 
     - blockedSenders: [block sender](#blocked-sender) list 
 
-### Add/update block sender 
+### Add/update a block sender 
 `put api/v2/ticket/blockedSenders` 
 - Parameters 
     - `email`, string, domain or email address 
@@ -681,7 +681,7 @@
 - Response 
     - blockedSender: [block sender](#blocked-sender) 
 
-### Remove block sender 
+### Remove a block sender 
 `delete api/v2/ticket/blockedSenders` 
 - Parameters 
    - email: string, domain or email address 
@@ -736,7 +736,7 @@
 | `type` | string | agent or group | 
 
 ## endpoints 
-### Get one department 
+### Get a department 
 `get api/v2/ticket/departments/{id} ` 
 - Response 
     - department: [department](#department) 
@@ -806,7 +806,7 @@
 - Response 
     - junkEmail: [junk email](#junk-email) 
 
-### Update junk email 
+### Update a junk email 
 `put api/v2/ticket/junkEmails/{id}` 
 - Parameters 
     - isRead: boolean, 
@@ -834,7 +834,7 @@
 | - | - | - | 
 | `id` | integer | id | 
 | `name` | string | tag name | 
-| `ticketCount` | integer | the count of tickets with the tag | 
+| `ticketCount` | integer | the number of tickets with the tag | 
 ## endpoints 
 ### List all tags 
 `Get api/v2/ticket/tags` 
