@@ -1,7 +1,7 @@
 ## Upload File Webhook
 
 ### Note
-- After user uploads an file to server via Ticket API, ticketing system will pass this event with uploaded file information to the defined webhook URL, and wait for the response of the scan tool.
+- After user uploads an file to server via Ticket API, ticketing system will pass this event with uploaded file information to the defined webhook URL, and wait for the response.
 
 ### Ticket Webhook
 ##### Request Data Format
@@ -13,7 +13,7 @@
   | `fileName` | string  | file name |
   | `fileExtension` | string  | file extension |
   | `fileSize` | int | file size |
-  | `fileURL` | string  | file download url | 
+  | `fileURL` | string  | file download URL | 
   | `fileLocalPath` | string  | file local path | 
 
 ##### Response Data Format
@@ -35,7 +35,7 @@
   | `fileName` | string  | file name |
   | `fileExtension` | string  | file extension |
   | `fileSize` | int | file size |
-  | `fileURL` | string  | file download url | 
+  | `fileURL` | string  | file download URL | 
   | `fileLocalPath` | string  | file local path | 
   
 ##### Response Data Format
