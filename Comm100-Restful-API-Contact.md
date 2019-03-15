@@ -6,8 +6,8 @@
 |[Agent](#agent)| /api/v2/account/agents|for agent|
 
 # Contact
-## objects
-### contact
+## Objects
+### Contact
 | Name | Type | Description |
 | - | - | - |
 | `id` | integer | id of contact |
@@ -26,16 +26,16 @@
 | `postalOrZipCode` | string | the postal or zip code of the contact  |
 | `createdTime` | datetime | the time the contact was created |
   
-### identity
+### Identity
 | Name | Type | Description | 
 | - | - | - | 
 | `id` | integer | the id of identity |
 | `type` | string | `email`, `SSOUserId`, `externalId` |
-| `value` | string | the value of this identity, should be unique |
+| `value` | string | the value of one identity, should be unique |
 
 - Note: We currently only allow one for each type.
 
-### endpoints
+### Endpoints
 #### Get a contact by contact id
 `get  /api/v2/account/contacts/{id}`
 - Parameters
@@ -138,7 +138,7 @@
     - contactId, integer, contact id
     - id, integer, contact identity id
 - Response
-    - http status code and message
+    - Http status code and message
 
 # Agent
 [Reference document](https://www.comm100.com/doc/api/introduction.htm#/Account?id=agent-json-format)
