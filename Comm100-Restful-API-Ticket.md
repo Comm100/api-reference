@@ -657,7 +657,7 @@
 - Response 
     - attachment: [attachment](#attachment) 
 ### Delete attachment 
-`delete /api/v2/ticket/attachments/guid` 
+`delete /api/v2/ticket/attachments/{guid}` 
 - Parameters 
     - guid: string, the guid of the attachment
 - Response 
