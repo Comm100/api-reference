@@ -13,8 +13,8 @@
     - Immediately send the second post after the first webhook post fails.
     - The third post will be sent 1 minute after the second one.
     - The forth post will be sent 10 minutes later.
-    - Next post is 1 hour later.
-    - Then 24 hours later.
+    - Next post is 1 hour later.
+    - Then 24 hours later.
 
 ### Ticket Webhook
 ##### Request Data Format
