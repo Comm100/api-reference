@@ -26,7 +26,7 @@
 ```javascript
 {
     "guid": "", //file guid
-    "result": "passed",  //string, passed or failed or delay, delay means sent the result via API later.
+    "result": "passed",  //string, passed or failed or delay, delay means the result will be sent via API later.
     "message": "", //string, optional
 }
 ```
