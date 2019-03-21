@@ -16,7 +16,6 @@
     - Next post is 1 hour later.
     - Then 24 hours later.
 
-
 ### Ticket Webhook
 ##### Request Data Format
   | Name | Type  | Description |
