@@ -10,6 +10,11 @@
         - put /api/v2/ticket/attachments/{guid}
         - delete /api/v2/ticket/attachments/{guid}
 - The re-post mechanism: If the event of sending webhook fails, or no response is received, we have a Timer function to repost the event periodically, but the interval gradually extends longer and longer, until 3 days later when the re-post will come to a stop.
+    - Immediately send the second post after the first webhook post fails.
+    - The third post will be sent 1 minute after the second one.
+    - The forth post will be sent 10 minutes later.
+    - Next post is 1 hour later.
+    - Then 24 hours later.
 
 
 ### Ticket Webhook
