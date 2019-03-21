@@ -1,11 +1,11 @@
 ## Upload File Webhook
 
 ### Note
-- After user uploads an file to server, at this time the status of the file is unavailable for download. Ticketing/live chat system will pass this event with uploaded file information to the defined webhook URL and need a response to check whether the post is received successfully . 
-- After your scan tool finished scanning the file,  you can return the webhook response directly, you can also  call the restful API to change the status of the file as the scanning result.
+- When a user uploads a file to the server, the status of the file does not support downloading yet. The Ticketing/Live Chat system will need to pass the event with the uploaded file information to the defined webhook URL and need a response to check whether the post has been received successfully. 
+- After the scan tool on your end finishes scanning the uploaded file, you will be able to return the webhook response directly. Another option is to call the restful API to change the status of the file according to the scanning result.
     - Live chat attachment API: put /api/v2/livechat/attachments/{guid}
     - Ticket attachment API: put /api/v2/ticket/attachments/{guid}
-- Repost mechanism. If the sending webhook fails or no response is received,  we have a Timer program to repost periodically, but the interval will be logner and longer.
+- The re-post mechanism: If the event of sending webhook fails, or no response is received, we have a Timer function to repost the event periodically, but the interval gradually extends longer and longer, until 3 days later when the re-post will come to a stop.
 
 
 ### Ticket Webhook
