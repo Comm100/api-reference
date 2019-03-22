@@ -18,19 +18,28 @@
     - The seventh post will be sent 24 hours after the sixth one fails.
     - The last post will be sent 24 hours after the seventh one fails.
 
+
 ### Ticket Webhook
+
 ##### Request Data Format
   | Name | Type  | Description |
   | - | - | - |
   | `event` | string  | `fileUploaded` |
   | `eventId` | string  | event id, unique for each event post |
+  | `payload` | payload[#Ticket_Upload_File_Webhook_Payload]  | payload data |
+  | `eventTime` | datatime  | event time |
+  
+##### Ticket Upload File Webhook Payload
+  | Name | Type  | Description |
+  | - | - | - |
   | `ticketId`| int | ticket id | 
   | `guid` | string  | file guid |
   | `fileName` | string  | file name |
   | `fileExtension` | string  | file extension |
   | `fileSize` | int | file size |
   | `fileURL` | string  | file download URL | 
-  | `fileLocalPath` | string  | file local path | 
+  | `fileLocalPath` | string  | file local path |
+  
 ##### Response Data Format
 - Sample repsonse json:
 ```javascript
@@ -47,6 +56,12 @@
   | - | - | - |
   | `event` | string  | `fileUploaded` |
   | `eventId` | string  | event id |
+  | `payload` | payload[#Live_Chat_Upload_File_Webhook_Payload]  | payload data |
+  | `eventTime` | datatime  | event time |
+  
+##### Live Chat Upload File Webhook Payload
+  | Name | Type  | Description |
+  | - | - | - |
   | `chatId`| int | chat id or offline message id| 
   | `guid` | string  | file guid |
   | `fileName` | string  | file name |
@@ -54,6 +69,7 @@
   | `fileSize` | int | file size |
   | `fileURL` | string  | file download URL | 
   | `fileLocalPath` | string  | file local path | 
+
 
 - Sample repsonse json:
 ```javascript
