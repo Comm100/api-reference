@@ -26,7 +26,7 @@
   | - | - | - |
   | `event` | string  | `fileUploaded` |
   | `eventId` | string  | event id, unique for each event post |
-  | `payload` | payload[#Ticket_Upload_File_Webhook_Payload]  | payload data |
+  | `payload` | [payload](#Ticket_Upload_File_Webhook_Payload)  | payload data |
   | `eventTime` | datatime  | event time |
   
 ##### Ticket Upload File Webhook Payload
@@ -56,7 +56,7 @@
   | - | - | - |
   | `event` | string  | `fileUploaded` |
   | `eventId` | string  | event id |
-  | `payload` | payload[#Live_Chat_Upload_File_Webhook_Payload]  | payload data |
+  | `payload` | [payload](#Live_Chat_Upload_File_Webhook_Payload)  | payload data |
   | `eventTime` | datatime  | event time |
   
 ##### Live Chat Upload File Webhook Payload
