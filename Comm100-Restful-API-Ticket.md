@@ -498,7 +498,6 @@
     - subject: string, subject, required
     - contactId: integer, id of the contact who submitted the portal ticket
     - customFields: [custom field value](#custom-field-value)[], custom field value array
-     - conditions: parameter format: `conditions[0][field]=subject&conditions[0][matchType]=is&conditions[0][value]=hi&conditions[1][field]=status&conditions[1][matchType]=is&conditions[1][value]=new`, fields can be ticket system fields and custom fields.
     - message:  the first portal message
         - htmlBody: string, html body
         - plainBody: string, plain text
