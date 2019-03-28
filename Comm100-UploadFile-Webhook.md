@@ -45,7 +45,7 @@
 ```javascript
 {
     "guid": "", //file guid
-    "result": "passed",  //string, passed or failed or delay, delay means the result will be sent via API later.
+    "result": "passed",  //string, passed or failed or delay, delay means the result will be sent via API later. We recommend use the restful API to push us the scan results.Instead of using the webhook response.
     "message": "", //string, optional
 }
 ```
