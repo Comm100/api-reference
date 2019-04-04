@@ -54,7 +54,7 @@
 `Put /api/v2/livechat/attachments/{guid}`
 
 #### Parameters:
-- status - string `passed` or  `failed`
+- isAvailable - boolean `true` or  `false`
 
 #### Response
 - attachment object
@@ -78,7 +78,7 @@ curl -H "Authorization: Bearer yP7Agz9nzzpgyPTxfM6ajBgIMhuaoz_p1XvLgKyULP7SzIbCR
 `Put /api/v2/ticket/attachments/{guid}`
 
 #### Parameters:
-- status - string `passed` or  `failed`
+- isAvailable - boolean `true` or  `false`
 
 #### Response
 - attachment object
