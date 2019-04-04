@@ -24,21 +24,21 @@
 ##### Request Data Format
   | Name | Type  | Description |
   | - | - | - |
-  | `event` | string  | `fileUploaded` |
-  | `eventId` | string  | event id, unique for each event post |
-  | `payload` | [payload](#Upload-File-Webhook-Payload)  | payload data |
-  | `eventTime` | datatime  | event time |
+  | `event` | string  | `chat.FileUploaded`, `offlineMessage.FileUploaded`, `ticket.FileUploaded` |
+  | `eventId` | string  | Event id, unique for each event post |
+  | `payload` | [payload](#Upload-File-Webhook-Payload)  | Payload data |
+  | `eventTime` | datatime  | Event time |
   
 ##### Upload File Webhook Payload
   | Name | Type  | Description |
   | - | - | - |
   | `objectId`| int | Ticket Id or chat Id or offline message Id | 
-  | `guid` | string  | file guid |
-  | `fileName` | string  | file name |
-  | `fileExtension` | string  | file extension |
-  | `fileSize` | int | file size |
-  | `fileURL` | string  | file download URL | 
-  | `fileLocalPath` | string  | file local path |
+  | `guid` | string  | File guid |
+  | `fileName` | string  | File name |
+  | `fileExtension` | string  | File extension |
+  | `fileSize` | int | File size |
+  | `fileURL` | string  | File download URL | 
+  | `fileLocalPath` | string  | File local path |
   
 ##### Response Data Format
 - Sample repsonse json:
