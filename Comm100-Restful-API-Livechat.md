@@ -5164,6 +5164,25 @@ Sample response:
 
 ## Attachments
 
+### Update Status of Live Chat Attachment
+`Put /api/v2/livechat/attachments/{guid}`
+
+#### Parameters:
+- isAvailable - boolean `true` or  `false`
+
+#### Response
+- attachment object
+
+#### Example
+##### Sample request:
+```shell
+curl -H "Authorization: Bearer yP7Agz9nzzpgyPTxfM6ajBgIMhuaoz_p1XvLgKyULP7SzIbCRUb3Qscheh \ 
+     74BceSrdZ61_LrJ4saBNJPP8NJdsrx5CbWSOfVlqHU9-dp7lVgBZbVg661SOcDM0dMYb8nOZ4rixC79j-lHw \ 
+    4mWLEhJAtUzqsfkG3QamG0VklLNThmPvRttwyLGqzZFY3keXNw5ivxy1Mr5smAJDWPfzKKQZXJIkutNz4W \ 
+    t3iC80BlOPFbAMnDdtvKjle6gf2V1WkHA-JW9W9QZc7A" \ 
+     -x PUT  https://channel.comm100.com/api/v2/livechat/attachments/12b76589-6ba7-4011-aa23-8779594aab11 `
+```
+
 ### delete attachment
 
   `Delete /api/v2/livechat/attachments/{guid}`
