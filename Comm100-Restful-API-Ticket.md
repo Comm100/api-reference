@@ -655,6 +655,14 @@
     - file: file
 - Response 
     - attachment: [attachment](#attachment) 
+    
+### Update status of attachment
+`Put /api/v2/livechat/attachments/{guid}`
+#### Parameters:
+- isAvailable - boolean `true` or  `false`
+#### Response
+ - attachment: [attachment](#attachment) 
+
 ### Delete attachment 
 `delete /api/v2/ticket/attachments/{guid}` 
 - Parameters 
