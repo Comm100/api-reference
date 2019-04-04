@@ -19,20 +19,20 @@
     - The last post will be sent 24 hours after the seventh one fails.
 
 
-### Ticket Webhook
+### Webhook
 
 ##### Request Data Format
   | Name | Type  | Description |
   | - | - | - |
   | `event` | string  | `fileUploaded` |
   | `eventId` | string  | event id, unique for each event post |
-  | `payload` | [payload](#Ticket-Upload-File-Webhook-Payload)  | payload data |
+  | `payload` | [payload](#Upload-File-Webhook-Payload)  | payload data |
   | `eventTime` | datatime  | event time |
   
-##### Ticket Upload File Webhook Payload
+##### Upload File Webhook Payload
   | Name | Type  | Description |
   | - | - | - |
-  | `ticketId`| int | ticket id | 
+  | `objectId`| int | Ticket Id or chat Id or offline message Id | 
   | `guid` | string  | file guid |
   | `fileName` | string  | file name |
   | `fileExtension` | string  | file extension |
@@ -46,36 +46,6 @@
 {
     "guid": "", //file guid
     "result": "passed",  //string, passed or failed or delay, delay means the result will be sent via API later. We recommend use the restful API to push us the scan results.Instead of using the webhook response.
-    "message": "", //string, optional
-}
-```
-
-### Livechat Webhook
-##### Request Data Format
-  | Name | Type  | Description |
-  | - | - | - |
-  | `event` | string  | `fileUploaded` |
-  | `eventId` | string  | event id |
-  | `payload` | [payload](#Live-Chat-Upload-File-Webhook-Payload)  | payload data |
-  | `eventTime` | datatime  | event time |
-  
-##### Live Chat Upload File Webhook Payload
-  | Name | Type  | Description |
-  | - | - | - |
-  | `chatId`| int | chat id or offline message id| 
-  | `guid` | string  | file guid |
-  | `fileName` | string  | file name |
-  | `fileExtension` | string  | file extension |
-  | `fileSize` | int | file size |
-  | `fileURL` | string  | file download URL | 
-  | `fileLocalPath` | string  | file local path | 
-
-
-- Sample repsonse json:
-```javascript
-{
-    "guid": "", //file guid
-    "result": "passed",  //string, passed or failed or delay
     "message": "", //string, optional
 }
 ```
