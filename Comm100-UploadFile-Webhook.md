@@ -54,7 +54,8 @@
 `Put /api/v2/livechat/attachments/{guid}`
 
 #### Parameters:
-- isAvailable - boolean `true` or  `false`
+- isAvailable, boolean `true` or  `false`
+- type, string `chat` or `offlineMessage` 
 
 #### Response
 - attachment object
