@@ -545,6 +545,20 @@
 - Response: 
     - message: [portal ticket message](#portal-ticket-message)
 
+### Contact mark a portal ticket as read
+`put api/v2/ticket/portalTickets/{id}/read`
+- Parameters 
+    - id: integer, ticket id 
+- Response 
+    - http status code
+
+### Contact mark a portal ticket as unread
+`put api/v2/ticket/portalTickets/{id}/unread`
+- Parameters 
+    - id: integer, ticket id 
+- Response 
+    - http status code
+
 # Filters 
 ## objects 
 ### filter 
