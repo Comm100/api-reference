@@ -98,6 +98,7 @@
 | `priority` | string | `urgent`, `high`, `normal`, `low` | 
 | `status` | string | `new`, `pendingInternal`, <br/>`pendingExternal`, `onHold`, `closed` | 
 | `isRead` | boolean | if the ticket is read | 
+| `isReaByContact` | boolean | if the portal ticket is read by contact |
 | `customFields` | [custom field value](#custom-field-value)[] | custom field value array | 
 | `createdById` | integer | contact id or agent id | 
 | `createdByType` |  string | agent or contact or system | 
@@ -450,6 +451,7 @@
 | `subject` | string | subject |
 | `contactId` | integer | id of the contact who submitted the portal ticket |
 | `isClosed` | boolean | if the portal ticket is closed |
+| `isReaByContact` | boolean | if the portal ticket is read by contact |
 | `customFields` | [custom field value](#custom-field-value)[] | custom field value array |
 | `createdTime` | datetime | create time |
 | `closedTime` | datetime | close time |
