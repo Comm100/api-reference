@@ -234,7 +234,6 @@
     - tagIds: integer[], tag id array
     - message: the first message of the ticket, required
         - type: string, `note`, `email`, `reply`, required
-        - source: string, `agentConsole`, `API`, default value: `API`
         - subject: string, for email message, email subject
         - htmlBody: string, html body of message
         - plainBody: string, plain text body of message
@@ -289,7 +288,6 @@
 `post api/v2/ticket/tickets/{id}/messages` 
 - Parameters  
     - type: string, `note`, `email`, `reply`, required
-    - source: string, `agentConsole`, `API`, default value: `API`
     - subject: string, for email message, email subject
     - htmlBody: string, html body of message, if you want to @mention an agent in a note, you can use the format: `<span data-id=agentId class="athighlight">note body</span>`
     - plainBody: string, plain text body of message
