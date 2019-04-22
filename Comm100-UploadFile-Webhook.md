@@ -72,6 +72,9 @@ curl -H "Authorization: Bearer yP7Agz9nzzpgyPTxfM6ajBgIMhuaoz_p1XvLgKyULP7SzIbCR
 ### Delete a Live Chat Attachment
 `Delete /api/v2/livechat/attachments/{guid}`
 
+#### Parameters:
+- attachmentType - string `chat` or  `offlinemessage`
+
 #### Response
 - http status
 
