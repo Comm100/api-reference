@@ -4786,7 +4786,7 @@ Sample response:
   - `departmentId` - id of the department which the chat belongs to.
   - `categoryId` - id of the category which the chat belongs to.
   - `visitorId` - id of the visitor which the chat belongs to.
-  - `contactId` - id of the contact which the chat belongs to.
+  - `contactIds` - integer array, support passing in multiple contact Id.
   - `keywords` - the key words of inquiring the chat
   - `conditions` - the condition list of inquiring the chat `conditions[0][field]=agent&conditions[0][operate]=equal&conditions[0][value]=michael`
     - `field` - field name of the condition.
@@ -4810,7 +4810,7 @@ curl -H "Authorization: Bearer jRhriWa2_yX-z1Y5ABCytDz3CrSBbCK155hRCw85FHTaYzTG9
     -aM-jE_GaqwzEXNzbk_IJw2RgFcrqpSHiSnolFgij80g_tU6f1Tmr6LDCj-puxRgceKMCIlC1PibtzxY2A_BRb \ 
     fmGPgS0xO6BkGa_TFv2jRVzz-e50P6OaTA05BkaBuEqWVi7FEtqqg33_-kHrMFaiP3HmPumTyB6gqDzDopLn1x \ 
     UTdSzWolvAD0lL6WYLU_hszD_K-qhJa_xnMKpOnLLEm22kQ" \ 
-     -x GET https://hosted.comm100.com/api/v2/livechat/chats
+     -x GET https://hosted.comm100.com/api/v2/livechat/chats?contactIds=1&contactIds=2&keywords=test
 ```
 
 Sample response:
@@ -4972,7 +4972,7 @@ Sample response:
   - `timezone` - time zone of the `timeFrom` and `timeTo`, defaults to UTC time
   - `campaignId` - id of the campaign which the offline message
   - `departmentId` - id of the department which the offline message belongs to
-  - `contactId` - id of the contact which this the offline message belongs to.
+  - `contactIds` - integer array, support passing in multiple contact Id.
   - `agentId` - id of the agent that this offline message belongs to
   - `visitorSegment` - id of the visitor segment which the visitor belongs to.
   - `keywords` - the key words of inquiring the  offline message.
@@ -4993,7 +4993,7 @@ curl -H "Authorization: Bearer jRhriWa2_yX-z1Y5ABCytDz3CrSBbCK155hRCw85FHTaYzTG9
     -aM-jE_GaqwzEXNzbk_IJw2RgFcrqpSHiSnolFgij80g_tU6f1Tmr6LDCj-puxRgceKMCIlC1PibtzxY2A_BRb \ 
     fmGPgS0xO6BkGa_TFv2jRVzz-e50P6OaTA05BkaBuEqWVi7FEtqqg33_-kHrMFaiP3HmPumTyB6gqDzDopLn1x \ 
     UTdSzWolvAD0lL6WYLU_hszD_K-qhJa_xnMKpOnLLEm22kQ" \ 
-     -x GET https://hosted.comm100.com/api/v2/livechat/offlinemessages
+     -x GET https://hosted.comm100.com/api/v2/livechat/offlinemessages?contactIds=1&contactIds=2
 ```
 
 Sample response:
