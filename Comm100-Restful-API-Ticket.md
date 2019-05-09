@@ -483,7 +483,7 @@
 ### List portal tickets
 `get api/v2/ticket/portalTickets`
 - Parameters:
-    - contactId, integer, required
+    - contactIds, integer array, required
 - Response: 
     - portalTickets: [portal ticket](#portal-ticket) list
 - Includes
