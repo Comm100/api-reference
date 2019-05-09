@@ -4712,7 +4712,7 @@ Sample response:
   | `sender` | string | no | no | name of this message's sender |
   | `type` | stirng | no | no | type of this message, maybe `agent` or `visitor` or `system` |
   | `content` | string | no | no | content of this message's sender |
-  | `isNote` | boolean | no | no | Whether the message is a note message |
+  | `isNoteMessage` | boolean | no | no | Whether the message is a note message |
 
 #### Chat Wrapup Json Format
 
