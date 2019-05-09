@@ -491,6 +491,8 @@
     |Includes| Description |
     | - | - |
     | contact | `get api/v2/ticket/portalTickets?include=contact` |  
+- Sample
+    `get api/v2/ticket/portalTickets?contactIds=1&contactIds=2&contactIds=3`
 
 ### Submit a portal ticket
 `post api/v2/ticket/portalTickets`
