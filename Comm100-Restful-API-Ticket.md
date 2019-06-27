@@ -728,7 +728,6 @@
 | `htmlContent` | string | html format content | 
 | `textContent` | string | text format content | 
 
-
 ## endpoints 
 ### List all canned responses 
 `get api/v2/ticket/cannedResponses` 
@@ -737,6 +736,35 @@
 - Response 
     - cannedResponses: [Canned responses](#canned-response) list 
 
+### Get a canned responses
+`get api/v2/tickets/cannedResponses/{id}` 
+- Parameters 
+    - id: int
+- Response 
+    - cannedResponse: [Canned responses](#canned-response) 
+
+### Add a canned response 
+`post api/v2/tickets/cannedResponses` 
+- Parameters 
+    - name: string
+    - htmlContent: string
+    - textContent: string
+- Response 
+    - cannedResponse: [Canned responses](#canned-response) 
+
+### Update a canned response 
+`put api/v2/tickets/cannedResponses/{id}` 
+- Parameters 
+    - [Canned responses](#canned-response)
+- Response 
+    - cannedResponse: [Canned responses](#canned-response) 
+
+### Delete a canned response 
+`delete api/v2/tickets/cannedResponses/{id}` 
+- Parameters 
+    - No parameter
+- Response 
+    - httpStatusCode
 
 # Configs 
 ### Get site configs about ticket 
