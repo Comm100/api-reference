@@ -440,7 +440,7 @@
         - unreadCount: integer, count unread tickets of a filter 
         - unreadMentionedCount: integer, the number of tickets which is unread and mentioned to me 
 
-# PortalTicket
+# PortalTickets
 ## objects
 ### portal ticket
 | Name | Type | Description |
@@ -748,7 +748,7 @@
         - isEnabledDepartment: boolean 
         - recipientLimitPerEmail: integer 
 
-# Department 
+# Departments 
 ## objects 
 ### department 
 | Name | Type | Description | 
