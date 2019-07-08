@@ -126,6 +126,12 @@
 | `name` | string | the name of custom field |
 | `value` | string | the value of custom field |
 
+### custom field id and value
+| Name | Type | Description | 
+| - | - | - | 
+| `id` | integer | the id of custom field | 
+| `value` | string | the value of custom field |
+
 ### mentioned agent 
 | Name | Type | Description | 
 | - | - | - | 
@@ -230,7 +236,7 @@
     - departmentAssigneeId: integer, department id
     - priority: string, `urgent`, `high`, `normal`, `low`, default value: `normal` 
     - status: string, `new`, `pendingInternal`, `pendingExternal`, `onHold`, `closed`, default value: `new`  
-    - customFields: [custom field value](#custom-field-value)[], custom field value array
+    - customFields: [custom field id and value](#custom-field-id-and-value)[], custom field value array
     - tagIds: integer[], tag id array
     - message: the first message of the ticket, required
         - type: string, `note`, `email`, `reply`, required
@@ -267,7 +273,7 @@
     - priority: string, priority: `urgent`, `high`, `normal`, `low`
     - status: string, `new`, `pendingInternal`, `pendingExternal,`, `onHold`, `closed`
     - isRead: boolean
-    - customFields: [custom field value](#custom-field-value)[], custom field value array
+    - customFields: [custom field id and value](#custom-field-id-and-value)[], custom field value array
     - tagIds: integer[], tag id array
 - Response 
     - ticket: [ticket](#ticket) 
@@ -499,7 +505,7 @@
 - Parameters: 
     - subject: string, subject, required
     - contactId: integer, id of the contact who submitted the portal ticket
-    - customFields: [custom field value](#custom-field-value)[], custom field value array
+    - customFields: [custom field id and value](#custom-field-id-and-value)[], custom field value array
     - message:  the first portal message
         - htmlBody: string, html body
         - plainBody: string, plain text
