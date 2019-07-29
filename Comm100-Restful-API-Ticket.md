@@ -185,7 +185,7 @@
     - keywords: string
     - timeFrom: DateTime, last reply time, default search the last 30 days, ISO-8601 time format,
     - timeTo: DateTime, last reply time, default value is the current time, ISO-8601 time format,
-    - timeZoneOffset, float, time zone based on your date parameters in ticket conditions. Such data parameters might be @today, @last 7 days for example.
+    - timeZoneOffset, float, time zone based on your date parameters in ticket conditions. Such date parameters might be @today, @last 7 days for example.
     - pageIndex: integer
     - sortBy: string, `nextSLABreach`, `lastReplyTime`, `lastActivityTime`, `priority`, `status` , default value: `lastReplyTime`
     - sortOrder: string, `ascending` or `descending`, default value: `descending`
@@ -509,7 +509,7 @@
     - keywords: string
     - timeFrom: DateTime, last reply time, default search the last 90 days, ISO-8601 time format,
     - timeTo: DateTime, last reply time, default value is the current time, ISO-8601 time format,
-    - timeZoneOffset, float, time zone based on your date parameters in ticket conditions. Such data parameters might be @today, @last 7 days for example.
+    - timeZoneOffset, float, time zone based on your date parameters in ticket conditions. Such date parameters might be @today, @last 7 days for example.
     - conditions: can be ticket system field and custom fields.
         - field: string, field name
         - matchType: string 
