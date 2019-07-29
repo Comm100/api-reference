@@ -700,7 +700,7 @@
     - attachments: [attachment](#attachment) array
     
 ### Update status of attachment
-`Put /api/v2/livechat/attachments/{guid}`
+`Put /api/v2/ticket/attachments/{guid}`
 #### Parameters:
 - isAvailable - boolean `true` or  `false`
 #### Response
