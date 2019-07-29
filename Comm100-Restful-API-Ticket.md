@@ -118,6 +118,7 @@
 | `mentionedAgents`|[mentioned agent](#mentioned-agent)[]| mentioned agents list | 
 | `isEditable`| boolean | if the current agent can update\reply the ticket | 
 | `lastMessage`| string | plain text of last message | 
+| `totalReplies`| int | total replies number | 
 
 ### custom field value
 | Name | Type | Description | 
@@ -145,7 +146,6 @@
 | `id` | integer | id of message | 
 | `ticketId` | integer | id of ticket | 
 | `type` | string | `note`, `email`, `reply` | 
-| `source` | string | `agentConsole`, `helpDesk`, `webForm`, `API`, `chat`, `offlineMessage` | 
 | `htmlBody` | string | html body of message | 
 | `plainBody` | string | plain text body of message | 
 | `quote` | string | quoted content of the message, only for email message | 
@@ -183,9 +183,9 @@
     - filterId: integer, filter id  
     - tagId: integer, tag id
     - keywords: string
-    - timeFrom: DateTime, last reply time, default search the last 30 days
-    - timeTo: DateTime, last reply time, default value is the current time
-    - timeZoneOffset, float, time zone of your time parameters
+    - timeFrom: DateTime, last reply time, default search the last 30 days, UTC time,
+    - timeTo: DateTime, last reply time, default value is the current time, UTC time,
+    - timeZoneOffset, float, time zone based on your date parameters in ticket conditions. Such data parameters might be @today, @last 7 days for example.
     - pageIndex: integer
     - sortBy: string, `nextSLABreach`, `lastReplyTime`, `lastActivityTime`, `priority`, `status` , default value: `lastReplyTime`
     - sortOrder: string, `ascending` or `descending`, default value: `descending`
@@ -454,16 +454,32 @@
 | `id` | integer | id of ticket |
 | `subject` | string | subject |
 | `contactId` | integer | id of the contact who submitted the portal ticket |
-| `isClosed` | boolean | if the portal ticket is closed |
+| `isRead` | boolean | if the ticket is read | 
 | `isReadByContact` | boolean | if the portal ticket is read by contact |
-| `customFields` | [custom field value](#custom-field-value)[] | custom field value array |
-| `createdTime` | datetime | create time |
+| `agentAssigneeId` | integer | agent assignee id | 
+| `departmentAssigneeId` | integer | department assignee id | 
+| `receivedFrom` | string | received email address for email channel | 
+| `channel` | string | `portal`, `email`| 
+| `priority` | string | `urgent`, `high`, `normal`, `low` | 
+| `status` | string | `new`, `pendingInternal`, <br/>`pendingExternal`, `onHold`, `closed` | 
 | `closedTime` | datetime | close time |
+| `createdById` | integer | contact id or agent id | 
+| `createdByType` |  string | agent or contact or system | 
+| `createdTime` | datetime | create time of ticket | 
+| `lastActivityTime` | datetime | last activity time of ticket | 
+| `lastStatusChangeTime` | datetime | last status change time of ticket | 
+| `lastRepliedTime` | datetime | last replied time | 
+| `lastRepliedById` | integer | contact id or agent id | 
+| `lastRepliedByType` | string | `agent` or `contact` or `system`| 
+| `lastMessage`| string | plain text of last message | 
+| `totalReplies`| int | total replies number | 
+| `customFields` | [custom field value](#custom-field-value)[] | custom field value array |
 
 ### portal ticket message 
 | Name | Type | Description | 
 | - | - | - | 
 | `id` | integer | id of message | 
+| `ticketId` | integer | id of ticket | 
 | `htmlBody` | string | html body | 
 | `plainBody` | string | plain text body | 
 | `senderId`| integer | id of agent or contact | 
@@ -490,6 +506,14 @@
 `get api/v2/ticket/portalTickets`
 - Parameters:
     - contactIds, integer array, required
+    - keywords: string
+    - timeFrom: DateTime, last reply time, default search the last 90 days, UTC time
+    - timeTo: DateTime, last reply time, default value is the current time, UTC time
+    - timeZoneOffset, float, time zone based on your date parameters in ticket conditions. Such data parameters might be @today, @last 7 days for example.
+    - conditions: can be ticket system field and custom fields.
+        - field: string, field name
+        - matchType: string 
+        - value: string
 - Response: 
     - portalTickets: [portal ticket](#portal-ticket) list
 - Includes
@@ -498,8 +522,7 @@
     | - | - |
     | contact | `get api/v2/ticket/portalTickets?include=contact` |  
 - Sample
-    - `get api/v2/ticket/portalTickets?contactIds=1&contactIds=2&contactIds=3`
-
+    - `get api/v2/ticket/portalTickets?contactIds=1&contactIds=2&contactIds=3&conditions[0][field]=subject&conditions[0][matchType]=is&conditions[0][value]=hi&conditions[1][field]=status&conditions[1][matchType]=is&conditions[1][value]=1`, note: pass the option id of dropdownlist field as the value.
 ### Submit a portal ticket
 `post api/v2/ticket/portalTickets`
 - Parameters: 
@@ -669,17 +692,15 @@
 | `url` | string | attachment download link | 
 | `isAvailable` | boolean | if the attachment is available | 
 ## endpoints 
-### Upload attachment 
+### Upload attachment
 `post /api/v2/ticket/attachments` 
-- Content-type
-    - multipart/form-data
 - Parameters 
-    - file: file
+    - file: file, support to upload multiple files at a time
 - Response 
-    - attachment: [attachment](#attachment) 
+    - attachments: [attachment](#attachment) array
     
 ### Update status of attachment
-`Put /api/v2/ticket/attachments/{guid}`
+`Put /api/v2/livechat/attachments/{guid}`
 #### Parameters:
 - isAvailable - boolean `true` or  `false`
 #### Response
