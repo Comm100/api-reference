@@ -11,7 +11,7 @@
     - DateTime Parameters: 
         - All time parameters need to be entered in the standard format of <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a>
     - The maximum size for a ticket’s attachments is 20MB.
-- All time values are UTC time. The caller can convert to different time zones where needed. 
+- All time values in response are UTC time. The caller can convert to different time zones where needed. 
 
 # Includes
 - Following APIs can use `Includes` as parameters to get related objects.
@@ -183,8 +183,8 @@
     - filterId: integer, filter id  
     - tagId: integer, tag id
     - keywords: string
-    - timeFrom: DateTime, last reply time, default search the last 30 days, UTC time,
-    - timeTo: DateTime, last reply time, default value is the current time, UTC time,
+    - timeFrom: DateTime, last reply time, default search the last 30 days, ISO-8601 time format,
+    - timeTo: DateTime, last reply time, default value is the current time, ISO-8601 time format,
     - timeZoneOffset, float, time zone based on your date parameters in ticket conditions. Such data parameters might be @today, @last 7 days for example.
     - pageIndex: integer
     - sortBy: string, `nextSLABreach`, `lastReplyTime`, `lastActivityTime`, `priority`, `status` , default value: `lastReplyTime`
@@ -507,8 +507,8 @@
 - Parameters:
     - contactIds, integer array, required
     - keywords: string
-    - timeFrom: DateTime, last reply time, default search the last 90 days, UTC time
-    - timeTo: DateTime, last reply time, default value is the current time, UTC time
+    - timeFrom: DateTime, last reply time, default search the last 90 days, ISO-8601 time format,
+    - timeTo: DateTime, last reply time, default value is the current time, ISO-8601 time format,
     - timeZoneOffset, float, time zone based on your date parameters in ticket conditions. Such data parameters might be @today, @last 7 days for example.
     - conditions: can be ticket system field and custom fields.
         - field: string, field name
