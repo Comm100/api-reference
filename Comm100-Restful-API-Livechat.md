@@ -3790,7 +3790,7 @@ Sample response:
   | `isEnable` | boolean | no | yes | whether the auto allocation is enabled or not. |
   | `allocationRule` | string | no | no | rule of chat allocation, including `load banlancing` , `round robin` and `capability weighted` |
   | `isLastChattedPreferred` | boolean | no | no | whether last-chatted agent is preferred or not |
-  | `isMaxChatForAllAgents` | boolean | no | no | whether to set the same maximum number of chats for all agents |
+  | `isMaxChatForAllAgents` | boolean | no | no | whether to set the same maximum number of /chats/ for all agents |
   | `maxChatForAllAgents` | integer | no | no | maximum number of chats for all agents |
   | `isAllocateChatWhenAgentInAudioVideo` | boolean | no | no | whether to allocate chats to agents who are having audio or video chats |
   | `isAllowAgentManualAcceptChat` | boolean | no | no | whether to allow agent to manually accept chat in agent console |
@@ -4779,8 +4779,6 @@ Sample response:
 
   - `timeFrom` - the beginning of query time
   - `timeTo` - the end of the query time
-
-  optional：
   - `timezone` - time zone of the `timeFrom` and `timeTo`, defaults to UTC time.
   - `agentId` - id of the agent who participate in the chat.
   - `departmentId` - id of the department which the chat belongs to.
@@ -4792,13 +4790,33 @@ Sample response:
     - `field` - field name of the condition.
     - `operate` - operate expression of the condition.
     - `value` - the value correspond with the field.
-  - `customFields` - the custom field list of inquiring the chat `conditions[0][field]=city&conditions[0][operate]=isnot&conditions[0][value]=Beijing`
+    
+    Here is the list of operators and values supported by each field. 
+    
+    |Field |Operators|Values|
+    |-|-|-|
+    |Campaign|Is,IsNot,Contains,NotContains||
+    |Name|Contains,NotContains||
+    |Phone|Contains,NotContains||
+    |Rating|Is,IsNot||
+    |Rating Comment|Contains,NotContains||
+    |Product Service|Is,IsNot||
+    |Email|Contains,NotContains||
+    |Transferred-out Department|Is,IsNot||
+    |Transferred-in Department|Is,IsNot||
+    |Transferred|Is,IsNot|True,False|
+    |Visitor Segment|Is,IsNot||
+    |SSO User ID|Is||
+    |Last Message Sent by|Is,IsNot|Visitor,Agent|
+    |CoBrowsing|Is,IsNot|Accepted,Refused,Not Requested|
+    
+  - `customFields` - the custom field list of inquiring the chat `customFields[0][field]=city&customFields[0][operate]=isnot&customFields[0][value]=Beijing`
     - `field` - field name of the custom field.
-    - `operate` - operate expression of the custom field.
+    - `operate` - operate expression of the custom field. The following operators are supported by every custom field: Is, IsNot, Contains and NotContains.
     - `value` - the value correspond with the field. 
-  - `customVariables` - the custom variable list of inquiring the chat `conditions[0][field]=My_Variable_Email&conditions[0][operate]=contains&conditions[0][value]=comm100`
+  - `customVariables` - the custom variable list of inquiring the chat `customVariables[0][field]=My_Variable_Email&customVariables[0][operate]=contains&customVariables[0][value]=comm100`
     - `field` - field name of the custom variable.
-    - `operate` - operate expression of the custom variable.
+    - `operate` - operate expression of the custom variable.The following operators are supported by every custom variable: Is, IsNot, Contains and NotContains.
     - `value` - the value correspond with the field.   
   - `pageIndex` -the page index of query.
   - `pageSize` - the page size of this query. defaults to 10, maximum is 100.
@@ -4975,8 +4993,6 @@ Sample response:
 - Parameters:
   - `timeFrom` - the beginning of query time
   - `timeTo` - the end of the query time
-
-  optional：
   - `timezone` - time zone of the `timeFrom` and `timeTo`, defaults to UTC time
   - `campaignId` - id of the campaign which the offline message
   - `departmentId` - id of the department which the offline message belongs to
@@ -5043,8 +5059,6 @@ Sample response:
 - Parameters
   - `timeFrom` - the beginning of query time
   - `timeTo` - the end of the query time
-
-  optional：
   - `timezone` - time zone of the `timeFrom` and `timeTo`, defaults to UTC time
   - `type` - type of the chat, including `missed` and `refused`.
   - `campaign` - id of the campaign which the message of the chat happened in.
@@ -5118,8 +5132,6 @@ Sample response:
 - Parameters:
   - `timeFrom` - the beginning of the query time
   - `timeTo` - the end of the query time
-
-    optional：
   - `agentId` - id of the agent who participated in the chat.
   - `keywords` - the key words of inquiring the chat
 
