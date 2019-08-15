@@ -4793,8 +4793,8 @@ Sample response:
     - `operate` - operate expression of the condition.
     - `value` - the value correspond with the field.
   - `customFields` - the custom field list of inquiring the chat `conditions[0][field]=city&conditions[0][operate]=isnot&conditions[0][value]=Beijing`
-    - `field` - field name of the custom fields.
-    - `operate` - operate expression of the custom fields.
+    - `field` - field name of the custom field.
+    - `operate` - operate expression of the custom field.
     - `value` - the value correspond with the field. 
   - `customVariables` - the custom variable list of inquiring the chat `conditions[0][field]=My_Variable_Email&conditions[0][operate]=contains&conditions[0][value]=comm100`
     - `field` - field name of the custom variable.
