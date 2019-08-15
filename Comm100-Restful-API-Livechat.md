@@ -4788,10 +4788,18 @@ Sample response:
   - `visitorId` - id of the visitor which the chat belongs to.
   - `contactIds` - integer array, support passing in multiple contact Id.
   - `keywords` - the key words of inquiring the chat
-  - `conditions` - the condition list of inquiring the chat `conditions[0][field]=agent&conditions[0][operate]=equal&conditions[0][value]=michael`
+  - `conditions` - the condition list of inquiring the chat `conditions[0][field]=agent&conditions[0][operate]=is&conditions[0][value]=michael`
     - `field` - field name of the condition.
     - `operate` - operate expression of the condition.
     - `value` - the value correspond with the field.
+  - `customFields` - the custom field list of inquiring the chat `conditions[0][field]=city&conditions[0][operate]=isnot&conditions[0][value]=Beijing`
+    - `field` - field name of the condition.
+    - `operate` - operate expression of the condition.
+    - `value` - the value correspond with the field. 
+   - `customVariables` - the custom variable list of inquiring the chat `conditions[0][field]=My_Variable_Email&conditions[0][operate]=contains&conditions[0][value]=comm100`
+    - `field` - field name of the condition.
+    - `operate` - operate expression of the condition.
+    - `value` - the value correspond with the field.   
   - `pageIndex` -the page index of query.
   - `pageSize` - the page size of this query. defaults to 10, maximum is 100.
 
