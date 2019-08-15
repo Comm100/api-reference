@@ -4789,35 +4789,35 @@ Sample response:
   - `conditions` - the condition list of inquiring the chat `conditions[0][field]=agent&conditions[0][operate]=is&conditions[0][value]=michael`
     - `field` - field name of the condition.
     - `operate` - operate expression of the condition.
-    - `value` - the value correspond with the field.
+    - `value` - the value of the field.
     
     Here is the list of operators and values supported by each field. 
     
     |Field |Operators|Values|
     |-|-|-|
-    |Campaign|Is,IsNot,Contains,NotContains||
-    |Name|Contains,NotContains||
-    |Phone|Contains,NotContains||
-    |Rating|Is,IsNot||
-    |Rating Comment|Contains,NotContains||
-    |Product Service|Is,IsNot||
-    |Email|Contains,NotContains||
-    |Transferred-out Department|Is,IsNot||
-    |Transferred-in Department|Is,IsNot||
-    |Transferred|Is,IsNot|True,False|
-    |Visitor Segment|Is,IsNot||
+    |Campaign|Is, IsNot, Contains, NotContains||
+    |Name|Contains, NotContains||
+    |Phone|Contains, NotContains||
+    |Rating|Is, IsNot||
+    |Rating Comment|Contains, NotContains||
+    |Product Service|Is, IsNot||
+    |Email|Contains, NotContains||
+    |Transferred-out Department|Is, IsNot||
+    |Transferred-in Department|Is, IsNot||
+    |Transferred|Is,IsNot|True, False|
+    |Visitor Segment|Is, IsNot||
     |SSO User ID|Is||
-    |Last Message Sent by|Is,IsNot|Visitor,Agent|
-    |CoBrowsing|Is,IsNot|Accepted,Refused,Not Requested|
+    |Last Message Sent by|Is, IsNot|Visitor, Agent|
+    |CoBrowsing|Is, IsNot|Accepted, Refused, Not Requested|
     
   - `customFields` - the custom field list of inquiring the chat `customFields[0][field]=city&customFields[0][operate]=isnot&customFields[0][value]=Beijing`
     - `field` - field name of the custom field.
     - `operate` - operate expression of the custom field. The following operators are supported by every custom field: Is, IsNot, Contains and NotContains.
-    - `value` - the value correspond with the field. 
+    - `value` - the value of the field. 
   - `customVariables` - the custom variable list of inquiring the chat `customVariables[0][field]=My_Variable_Email&customVariables[0][operate]=contains&customVariables[0][value]=comm100`
     - `field` - field name of the custom variable.
     - `operate` - operate expression of the custom variable.The following operators are supported by every custom variable: Is, IsNot, Contains and NotContains.
-    - `value` - the value correspond with the field.   
+    - `value` - the value of the field.   
   - `pageIndex` -the page index of query.
   - `pageSize` - the page size of this query. defaults to 10, maximum is 100.
 
