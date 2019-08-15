@@ -4804,7 +4804,7 @@ Sample response:
     |Email|Contains, NotContains||
     |Transferred-out Department|Is, IsNot||
     |Transferred-in Department|Is, IsNot||
-    |Transferred|Is,IsNot|True, False|
+    |Transferred|Is, IsNot|True, False|
     |Visitor Segment|Is, IsNot||
     |SSO User ID|Is||
     |Last Message Sent by|Is, IsNot|Visitor, Agent|
