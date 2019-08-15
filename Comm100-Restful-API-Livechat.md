@@ -3790,7 +3790,7 @@ Sample response:
   | `isEnable` | boolean | no | yes | whether the auto allocation is enabled or not. |
   | `allocationRule` | string | no | no | rule of chat allocation, including `load banlancing` , `round robin` and `capability weighted` |
   | `isLastChattedPreferred` | boolean | no | no | whether last-chatted agent is preferred or not |
-  | `isMaxChatForAllAgents` | boolean | no | no | whether to set the same maximum number of /chats/ for all agents |
+  | `isMaxChatForAllAgents` | boolean | no | no | whether to set the same maximum number of chats for all agents |
   | `maxChatForAllAgents` | integer | no | no | maximum number of chats for all agents |
   | `isAllocateChatWhenAgentInAudioVideo` | boolean | no | no | whether to allocate chats to agents who are having audio or video chats |
   | `isAllowAgentManualAcceptChat` | boolean | no | no | whether to allow agent to manually accept chat in agent console |
