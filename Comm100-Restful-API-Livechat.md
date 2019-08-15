@@ -4796,7 +4796,7 @@ Sample response:
     - `field` - field name of the condition.
     - `operate` - operate expression of the condition.
     - `value` - the value correspond with the field. 
-   - `customVariables` - the custom variable list of inquiring the chat `conditions[0][field]=My_Variable_Email&conditions[0][operate]=contains&conditions[0][value]=comm100`
+  - `customVariables` - the custom variable list of inquiring the chat `conditions[0][field]=My_Variable_Email&conditions[0][operate]=contains&conditions[0][value]=comm100`
     - `field` - field name of the condition.
     - `operate` - operate expression of the condition.
     - `value` - the value correspond with the field.   
