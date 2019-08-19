@@ -505,7 +505,7 @@
 ### List portal tickets
 `get api/v2/ticket/portalTickets`
 - Parameters:
-    - contactIds, integer array, required
+    - contactIds, integer array
     - keywords: string
     - timeFrom: DateTime, last reply time, default search the last 90 days, ISO-8601 time format,
     - timeTo: DateTime, last reply time, default value is the current time, ISO-8601 time format,
