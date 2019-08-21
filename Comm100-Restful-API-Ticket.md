@@ -514,8 +514,43 @@
         - field: string, field name
         - matchType: string 
         - value: string
+
+    Here is the list of match types and values supported by ticket system field.    
+    | Field | Match Type | Values |
+    | - | - | - |
+    | Ticket Id | Is, IsNot  | number |
+    | Subject | Contains, NotContains  | string |
+    | Department Assignee | Is, IsNot  | Department Id |
+    | Agent Assignee | Is, IsNot  | Agent Id |
+    | Status | Is, IsNot  | `new`, `pendingExternal`, `pendingInternal`, `onHold`, `Closed` |
+    | Priority | Is, IsNot  | `urgent`, `high`, `normal`, `low` |
+    | Channel | Is, IsNot  | `portal`, `email`, `chat`, `offlineMessage` | 
+    | Date Created | Is, IsNot, Before, After | time format: `2019-01-03` |
+    | Last Activity Time | Is, IsNot, Before, After | time format: `2019-01-03` |
+    | Last Status Change Time | Is, IsNot, Before, After | time format: `2019-01-03` |
+    | Close Time | Is, IsNot, Before, After | time format: `2019-01-03` |
+    | Total Replies | Is, IsNot, IsMoreThan, IsLessThan | number |
+    | ContactId | Is, IsNot | number, contact Id |
+    | @Mentioned Agent | Is, IsNot | number, agent Id |
+    
+    Here is the list of match types and values supported by ticket custom field.    
+    | Field DataType | Match Type | Values |
+    | - | - | - |
+    | Date | Is, IsNot，After, Before | time format: `2019-01-03` |
+    | Drop-down list | Is, IsNot | option text |
+    | Check-box list | Is, IsNot | option text |
+    | Radio button | Is, IsNot | option text |
+    | Check-box | Is, IsNot | `true`, `false` |
+    | Single-line text box | Contains, NotContains | string |
+    | Multi-line text box | Contains, NotContains | string |
+    | Agent | Is, IsNot | agent id |
+    | Department | Is, IsNot | department id |
+    | Link | Contains, NotContains | string |
+    | Url | Contains, NotContains | string |
+
+
 - Response: 
-    - portalTickets: [portal ticket](#portal-ticket) list
+    - portalTickets: [portal ticket](#portal-ticket) list, returns a maximum of 100 records. 
 - Includes
 
     |Includes| Description |
