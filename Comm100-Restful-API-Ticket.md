@@ -516,6 +516,7 @@
         - value: string
 
     Here is the list of match types and values supported by ticket system field.    
+    
     | Field | Match Type | Values |
     | - | - | - |
     | Ticket Id | Is, IsNot  | number |
@@ -534,6 +535,7 @@
     | @Mentioned Agent | Is, IsNot | number, agent Id |
     
     Here is the list of match types and values supported by ticket custom field.    
+
     | Field DataType | Match Type | Values |
     | - | - | - |
     | Date | Is, IsNot，After, Before | time format: `2019-01-03` |
