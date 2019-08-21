@@ -4819,7 +4819,7 @@ Sample response:
     - `operate` - operate expression of the custom variable. The following operators are supported by every custom variable: Is, IsNot, Contains and NotContains.
     - `value` - the value of the custom variable.   
   - `pageIndex` -the page index of query.
-  - `pageSize` - the page size of this query. defaults to 10, maximum is 100.
+  - `pageSize` - the page size of this query. Defaults to 10, maximum is 100.
 
 - Response
   - `total` - total count of the list.
