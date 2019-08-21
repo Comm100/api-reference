@@ -4813,11 +4813,11 @@ Sample response:
   - `customFields` - the custom field list of inquiring the chat `customFields[0][field]=city&customFields[0][operate]=isnot&customFields[0][value]=Beijing`
     - `field` - field name of the custom field.
     - `operate` - operate expression of the custom field. The following operators are supported by every custom field: Is, IsNot, Contains and NotContains.
-    - `value` - the value of the field. 
+    - `value` - the value of the custom field. 
   - `customVariables` - the custom variable list of inquiring the chat `customVariables[0][field]=My_Variable_Email&customVariables[0][operate]=contains&customVariables[0][value]=comm100`
     - `field` - field name of the custom variable.
-    - `operate` - operate expression of the custom variable.The following operators are supported by every custom variable: Is, IsNot, Contains and NotContains.
-    - `value` - the value of the field.   
+    - `operate` - operate expression of the custom variable. The following operators are supported by every custom variable: Is, IsNot, Contains and NotContains.
+    - `value` - the value of the custom variable.   
   - `pageIndex` -the page index of query.
   - `pageSize` - the page size of this query. defaults to 10, maximum is 100.
 
