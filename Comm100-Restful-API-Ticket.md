@@ -729,6 +729,12 @@
 | `url` | string | attachment download link | 
 | `isAvailable` | boolean | if the attachment is available | 
 ## endpoints 
+### Get attachment
+#### Parameters:
+- id - guid, attachment id
+#### Response
+- attachment: [attachment](#attachment) 
+
 ### Upload attachment
 `post /api/v2/ticket/attachments` 
 - Parameters 
