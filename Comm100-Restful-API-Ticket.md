@@ -730,8 +730,9 @@
 | `isAvailable` | boolean | if the attachment is available | 
 ## endpoints 
 ### Get attachment
+`Get /api/v2/ticket/attachments/{guid}`
 #### Parameters:
-- id - guid, attachment id
+- guid - string, attachment guid
 #### Response
 - attachment: [attachment](#attachment) 
 
