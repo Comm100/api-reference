@@ -241,7 +241,7 @@ Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.customFields:123',
             newData
         }
     }
-Comm100AgentConsoleAPI.on('agentconsole.currentTicket.selected.changed', function(event) {});
+Comm100AgentConsoleAPI.on('agentconsole.currentTicket.selectChanged', function(event) {});
 Comm100AgentConsoleAPI.on('agentconsole.currentTicket.subject.changed', function(event) {});
 Comm100AgentConsoleAPI.on('agentconsole.currentTicket.contact.changed', function(event) {});
 Comm100AgentConsoleAPI.on('agentconsole.currentTicket.departmentAssignee.changed', function(event) {});
