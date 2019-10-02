@@ -1,5 +1,5 @@
 # General
-
+test
 # Basic Data Structure
 
   ```javascript
@@ -9,7 +9,7 @@
     subject: '', //string
     agentAssignee: 
     {
-        id: 1, //number
+        id: 1, // number
         email: '', //string
         displayName: '', //string 
         firstName: '', //string
@@ -17,7 +17,7 @@
         title: '', //string	 
         bio: '', //string	 
         mobilePhone: '', //string	
-        isAdmin: false, //boolean
+        isAdmin: false, // boolean
         timeZone: '', //string
         dateTimeFormat: '' //string
     },
@@ -28,7 +28,7 @@
     },
     contact:
     {
-        id: 1, //number
+        id: number, //number
         name: '', //string
         identities:[
             {
@@ -38,7 +38,6 @@
             }
         ],
         description: '', //string
-        alias: '', //string
         company: '', //string
         title: '', //string
         phoneNumber: '', //string
@@ -47,16 +46,17 @@
         city: '', //string
         stateOrProvince: '', //string
         country: '', //string
-        postalOrZipCode: '', //string
+        postcode: '', //string
         createdTime: '' //string
     },
-    channel: '', //string, Portal, Email,
+    channel: '', // string, Portal, Email,
     status: '', //string, new, pendingExternal, pendingInternal, onHold, closed
     priority: '', //string, low, normal, high, urgent
     isRead: false, //boolean
     hasDraft: true, //boolean
     receivedFrom: '', //string
     createdTime: '2018-12-08T12:03:07.563', //ISO 8601 time format
+    closedTime: '2018-12-08T12:03:07.563', //ISO 8601 time format
     lastActivityTime: '2018-12-08T12:03:07.563', //ISO 8601 time format
     lastStatusChangeTime: '2018-12-08T12:03:07.563', //ISO 8601 time format
     firstRespondBreachAt: '2018-12-08T12:03:07.563', //ISO 8601 time format
@@ -78,8 +78,16 @@
     mentionedAgents:[
         {
             id: 1, //number,agent id
-            messageId: 1, //number, message Id
+            messageId: 1, // message Id
             isRead: false, //boolean
+        }
+    ],
+    attachments:[
+        { 
+            guid: "6a8f3e5f-4e31-4ee7-b074-13d0ea278eab", //string
+            url: '', //string
+            fileName:'', //string
+            isAvailable: true
         }
     ]
   }
@@ -117,7 +125,7 @@
 
  // attachment
   const  attachment = { 
-    guid: '', //string
+    guid: '', // string
     fileName: '', // string
     url: '',// string
     isAvailable: true //boolean
@@ -125,7 +133,7 @@
   
   // agent
   const  agent = {
-    id: 1,    //number
+    id: 1,    // number
     email: '', //string
     displayName: '', //string 
     firstName: '', //string
@@ -133,7 +141,7 @@
     title: '', //string	 
     bio: '', //string	 
     mobilePhone: '', //string	
-    isAdmin: false, //boolean
+    isAdmin: false, // boolean
     timeZone: '', //string
     dateTimeFormat: '', //string
   }
@@ -149,20 +157,20 @@
   ```
 
 ## Ticket
-### Get the information of current ticket
+### get the information of current ticket
 
 ```javascript
 /** @type {object(ticket)} **/
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket');
 ```
 
-### Subject
+### subject
    
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.subject');
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.subject', value);
 ```
-### Contact
+### contact
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.contact'); 
@@ -172,7 +180,7 @@ Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.contact', value);
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.contact', { id: 1 });
 ```
 
-### Department assignee
+### department assignee
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.departmentAssignee');
@@ -180,7 +188,7 @@ Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.departmentAssignee
 //Example
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.departmentAssignee', { id: 1 });
 ```
-### Agent assignee
+### agent assignee
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.agentAssignee');
@@ -189,20 +197,20 @@ Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.agentAssignee', va
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.agentAssignee', {id: 1 });
 ```
 
-### Priority
+### priority
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.priority');
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.priority', value);
 ```
 
-### Status
+### status
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.status');
 Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.status', value);
 ```
-### Tags
+### tags
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.tags');
@@ -213,7 +221,7 @@ Comm100AgentConsoleAPI.do('agentconsole.ticket.currentTicket.tags.add', {id: 1})
 Comm100AgentConsoleAPI.do('agentconsole.ticket.currentTicket.tags.remove', {id: 1});
 ```
 
-### Custom fields
+### custom fields
 
 ```javascript
 Comm100AgentConsoleAPI.get('agentconsole.ticket.currentTicket.customFields:[field id]');
@@ -224,7 +232,7 @@ Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.customFields:123',
 
 # Event
 ## Change Events
-- This event is triggered when ticket property value has changed.
+- this event is triggered when ticket property value has changed.
 
 ```javascript
     const propertyChangedEvent = {
@@ -233,7 +241,7 @@ Comm100AgentConsoleAPI.set('agentconsole.ticket.currentTicket.customFields:123',
             newData
         }
     }
-
+Comm100AgentConsoleAPI.on('agentconsole.currentTicket.selected.changed', function(event) {});
 Comm100AgentConsoleAPI.on('agentconsole.currentTicket.subject.changed', function(event) {});
 Comm100AgentConsoleAPI.on('agentconsole.currentTicket.contact.changed', function(event) {});
 Comm100AgentConsoleAPI.on('agentconsole.currentTicket.departmentAssignee.changed', function(event) {});
