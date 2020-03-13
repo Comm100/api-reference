@@ -71,7 +71,9 @@
 - `get  /api/v2/account/contacts`
 - Parameters
     - pageIndex, integer, default 1
-    - keywords, string, search scope includes: name/identity value/alias 
+    - identityType: string, optional, such as: 'SSOUserId',
+    - identityValue: string, optional, such as: 'Bene@12'
+    - keywords, string, optional, search scope includes: name/identity value/alias 
 - Response
     - contacts: [contact object](#contact) list
     - total: int, total number of contacts.
